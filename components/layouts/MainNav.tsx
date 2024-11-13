@@ -7,7 +7,6 @@ import { IoSearchOutline } from "react-icons/io5";
 
 import {
   Navbar,
-  NavbarBrand,
   NavbarContent,
   NavbarItem,
   NavbarMenu,
@@ -52,11 +51,8 @@ const MainNav = () => {
         {/* Drop down for desktop */}
         {menuItemsNav.map((data, i) => {
           return (
-            <Dropdown>
-              <NavbarItem
-                className='hidden lg:ms-5 lg:block hover:bg-gray-100 hover:dark:bg-gray-900 px-2 rounded-xl duration-200'
-                key={i}
-              >
+            <Dropdown key={i}>
+              <NavbarItem className='hidden lg:ms-5 lg:block hover:bg-gray-100 hover:dark:bg-gray-900 px-2 rounded-xl duration-200'>
                 <DropdownTrigger>
                   <Button
                     disableRipple

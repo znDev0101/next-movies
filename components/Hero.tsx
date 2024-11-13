@@ -1,6 +1,5 @@
 import Image from "next/image";
 import React from "react";
-import SearchHeroMovie from "./ui/SearchHeroMovie";
 
 const HeroSection = async () => {
   const pathImg = "https://image.tmdb.org/t/p/original/";
