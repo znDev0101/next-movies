@@ -18,7 +18,7 @@ const HeroSection = async () => {
 
   const results = await response.json();
 
-  const randomIndex = Math.floor(Math.random() * results.results.length);
+  const randomIndex = Math.floor(Math.random() * results?.results.length);
   const data = results.results.slice(randomIndex, randomIndex + 1);
 
   return (
