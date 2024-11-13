@@ -42,9 +42,9 @@ const HeroSection = async () => {
 
           <div className='text-foreground flex flex-col gap-y-8'>
             <h1 className='text-6xl font-bold'>
-              {data[0].title || data[0].name}
+              {data?.[0].title || data?.[0].name}
             </h1>
-            <p className='font-semibold text-gray-600'>{data[0].overview}</p>
+            <p className='font-semibold text-gray-600'>{data?.[0].overview}</p>
           </div>
         </div>
         <div className='absolute w-full h-full top-0 bottom-0 left-0 right-0 bg-gradient-to-t from-white from-5% opacity-60 dark:from-black dark:from-20% dark:opacity-85 z-20'></div>
