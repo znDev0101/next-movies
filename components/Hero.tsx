@@ -10,10 +10,10 @@ const HeroSection = async () => {
 
   const results = await response.json();
 
-  const randomIndex = Math.floor(Math.random() * results.results?.length);
+  const randomIndex = Math.floor(
+    Math.random() * (await results.results?.length)
+  );
   const data = await results.results?.slice(randomIndex, randomIndex + 1);
-
-  console.log(data);
 
   return (
     <section className='max-w-[81rem] mx-auto h-screen relative mt-3 rounded-lg overflow-hidden'>
