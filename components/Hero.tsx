@@ -10,9 +10,7 @@ const HeroSection = async () => {
 
   const results = await response.json();
 
-  const randomIndex = Math.floor(
-    Math.random() * (await results.results?.length)
-  );
+  const randomIndex = Math.floor(Math.random() * 20);
   const data = await results.results?.slice(randomIndex, randomIndex + 1);
 
   return (
