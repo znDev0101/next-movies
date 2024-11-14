@@ -14,7 +14,14 @@ const HeroSection = async () => {
   return (
     <section className='max-w-[81rem] mx-auto h-screen relative mt-3 rounded-lg overflow-hidden'>
       <div className='h-full'>
-        <div className='relative w-full h-full'>
+        {results.results.map((data: any, i: number) => {
+          return (
+            <div key={i}>
+              <h1>{data.title || data.name}</h1>
+            </div>
+          );
+        })}
+        {/* <div className='relative w-full h-full'>
           <Image
             src={`${pathImg}${randomItem.backdrop_path}`}
             alt='hero movie img'
@@ -32,9 +39,9 @@ const HeroSection = async () => {
           <h1 className='text-6xl font-bold'>
             {randomItem.title || randomItem.name}
           </h1>
-          {/* <p className='font-semibold text-gray-600'>{randomItem?.overview}</p> */}
+          <p className='font-semibold text-gray-600'>{randomItem?.overview}</p>
         </div>
-        <div className='absolute w-full h-full top-0 bottom-0 left-0 right-0 bg-gradient-to-t from-white from-5% opacity-60 dark:from-black dark:from-20% dark:opacity-85 z-20'></div>
+        <div className='absolute w-full h-full top-0 bottom-0 left-0 right-0 bg-gradient-to-t from-white from-5% opacity-60 dark:from-black dark:from-20% dark:opacity-85 z-20'></div> */}
       </div>
     </section>
   );
