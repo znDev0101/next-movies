@@ -33,7 +33,7 @@ const HeroSection = async () => {
           <h1 className='text-6xl font-bold'>
             {randomItem?.title || randomItem?.name}
           </h1>
-          <p className='font-semibold text-gray-600'>{results?.overview}</p>
+          <p className='font-semibold text-gray-600'>{randomItem?.overview}</p>
         </div>
         <div className='absolute w-full h-full top-0 bottom-0 left-0 right-0 bg-gradient-to-t from-white from-5% opacity-60 dark:from-black dark:from-20% dark:opacity-85 z-20'></div>
       </div>
