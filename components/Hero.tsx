@@ -25,7 +25,7 @@ const HeroSection = async () => {
       <div className='h-full'>
         <div className='relative w-full h-full'>
           <Image
-            src={`${pathImg}${results.belongs_to_collection.backdrop_path}`}
+            src={`${pathImg}${results.belongs_to_collection?.backdrop_path}`}
             alt='hero movie img'
             fill
             style={{
