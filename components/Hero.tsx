@@ -9,8 +9,7 @@ const HeroSection = async () => {
   );
 
   const results = await response.json();
-  const randomItem =
-    results?.results[Math.floor(Math.random() * results.results?.length)];
+  const randomItem = results?.results[Math.floor(Math.random() * 20)];
 
   return (
     <section className='max-w-[81rem] mx-auto h-screen relative mt-3 rounded-lg overflow-hidden'>
@@ -33,7 +32,7 @@ const HeroSection = async () => {
           <h1 className='text-6xl font-bold'>
             {randomItem?.title || randomItem?.name}
           </h1>
-          <p className='font-semibold text-gray-600'>{randomItem?.overview}</p>
+          {/* <p className='font-semibold text-gray-600'>{randomItem?.overview}</p> */}
         </div>
         <div className='absolute w-full h-full top-0 bottom-0 left-0 right-0 bg-gradient-to-t from-white from-5% opacity-60 dark:from-black dark:from-20% dark:opacity-85 z-20'></div>
       </div>
