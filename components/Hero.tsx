@@ -1,8 +1,8 @@
-import Image from "next/image";
+// import Image from "next/image";
 import React from "react";
 
 const HeroSection = async () => {
-  const pathImg = "https://image.tmdb.org/t/p/original/";
+  // const pathImg = "https://image.tmdb.org/t/p/original/";
 
   const response = await fetch(
     `https://api.themoviedb.org/3/movie/${558449}?language=en-US`,
