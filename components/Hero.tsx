@@ -18,7 +18,7 @@ const HeroSection = async () => {
       <div className='h-full'>
         <div className='relative w-full h-full'>
           <Image
-            src={`${pathImg}${data[0]?.backdrop_path}`}
+            src={`${pathImg}${data?.[0]?.backdrop_path}`}
             alt='hero movie img'
             fill
             style={{
@@ -34,7 +34,7 @@ const HeroSection = async () => {
           <h1>Test</h1>
           <div className='text-foreground flex flex-col gap-y-8'>
             <h1 className='text-6xl font-bold'>
-              {data[0]?.title || data[0]?.name}
+              {data?.[0]?.title || data?.[0]?.name}
             </h1>
             <p className='font-semibold text-gray-600'>{results?.overview}</p>
           </div>
