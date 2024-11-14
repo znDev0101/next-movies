@@ -23,16 +23,16 @@ const HeroSection = async () => {
 
   return (
     <section className='max-w-[81rem] mx-auto h-screen relative mt-3 rounded-lg overflow-hidden'>
-      <div className='relative h-full'>
-        <div className='w-full'>
+      <div className='h-full'>
+        <div className='relative w-full h-full'>
           <Image
-            src={`${pathImg}${data?.[0].backdrop_path}`}
+            src={`${pathImg}${data?.[0]?.backdrop_path}`}
             alt='hero movie img'
             fill
-            property='true'
             style={{
               objectFit: "cover",
             }}
+            priority
           />
         </div>
         <div className='absolute top-1/2 left-1/2 transform -translate-x-1/2 translate-y-1/4 text-center flex flex-col lg:gap-y-2 pt-20 z-30'>
