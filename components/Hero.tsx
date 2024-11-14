@@ -38,7 +38,7 @@ const HeroSection = async () => {
           <div className='w-max text-center mx-auto px-2 py-1 text-white rounded-full   bg-black dark:bg-white'>
             <p className='text-white dark:text-black'>Trending Now</p>
           </div>
-
+          <h1>Test</h1>
           <div className='text-foreground flex flex-col gap-y-8'>
             <h1 className='text-6xl font-bold'>
               {/* {data?.[0].title || data?.[0].name} */}
