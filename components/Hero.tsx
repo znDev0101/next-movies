@@ -15,7 +15,7 @@ const HeroSection = async () => {
   return (
     <section className='max-w-[81rem] mx-auto h-screen relative mt-3 rounded-lg overflow-hidden'>
       <div className='h-full'>
-        {results.results.map((data: AllTrending, i: number) => {
+        {results.results?.map((data: AllTrending, i: number) => {
           return (
             <div key={i}>
               <h1>{data.title || data.name}</h1>
