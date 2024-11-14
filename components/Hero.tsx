@@ -5,8 +5,7 @@ const HeroSection = async () => {
   const pathImg = "https://image.tmdb.org/t/p/original/";
 
   const response = await fetch(
-    `
-  https://api.themoviedb.org/3/trending/all/day?language=en-US`,
+    `https://api.themoviedb.org/3/movie/${558449}?language=en-US`,
     {
       method: "GET",
       headers: {
@@ -18,15 +17,15 @@ const HeroSection = async () => {
 
   const results = await response.json();
 
-  const randomIndex = Math.floor(Math.random() * results.results?.length);
-  const data = results.results?.slice(randomIndex, randomIndex + 1);
+  // const randomIndex = Math.floor(Math.random() * results.results?.length);
+  // const data = results.results?.slice(randomIndex, randomIndex + 1);
 
   return (
     <section className='max-w-[81rem] mx-auto h-screen relative mt-3 rounded-lg overflow-hidden'>
       <div className='h-full'>
         <div className='relative w-full h-full'>
           <Image
-            src={`${pathImg}${data?.[0]?.backdrop_path}`}
+            src={`${pathImg}${results.belongs_to_collection.backdrop_path}`}
             alt='hero movie img'
             fill
             style={{
@@ -35,7 +34,7 @@ const HeroSection = async () => {
             priority
           />
         </div>
-        <div className='absolute top-1/2 left-1/2 transform -translate-x-1/2 translate-y-1/4 text-center flex flex-col lg:gap-y-2 pt-20 z-30'>
+        {/* <div className='absolute top-1/2 left-1/2 transform -translate-x-1/2 translate-y-1/4 text-center flex flex-col lg:gap-y-2 pt-20 z-30'>
           <div className='w-max text-center mx-auto px-2 py-1 text-white rounded-full   bg-black dark:bg-white'>
             <p className='text-white dark:text-black'>Trending Now</p>
           </div>
@@ -46,7 +45,7 @@ const HeroSection = async () => {
             </h1>
             <p className='font-semibold text-gray-600'>{data?.[0].overview}</p>
           </div>
-        </div>
+        </div> */}
         <div className='absolute w-full h-full top-0 bottom-0 left-0 right-0 bg-gradient-to-t from-white from-5% opacity-60 dark:from-black dark:from-20% dark:opacity-85 z-20'></div>
       </div>
     </section>
