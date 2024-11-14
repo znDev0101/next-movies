@@ -4,11 +4,11 @@ import React from "react";
 const HeroSection = async () => {
   const pathImg = "https://image.tmdb.org/t/p/original/";
 
-  let response = await fetch(
+  const response = await fetch(
     `https://api.themoviedb.org/3/trending/all/day?api_key=${process.env.API_KEY}`
   );
 
-  let results = await response.json();
+  const results = await response.json();
 
   const randomIndex = Math.floor(Math.random() * results.results?.length);
   const data = results.results?.slice(randomIndex, randomIndex + 1);
