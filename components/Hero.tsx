@@ -16,7 +16,7 @@ const HeroSection = async () => {
       <div className='h-full'>
         <div className='relative w-full h-full'>
           <Image
-            src={`${pathImg}${randomItem?.backdrop_path}`}
+            src={`${pathImg}${randomItem.backdrop_path}`}
             alt='hero movie img'
             fill
             style={{
@@ -30,7 +30,7 @@ const HeroSection = async () => {
             <p className='text-white dark:text-black'>Trending Now</p>
           </div>
           <h1 className='text-6xl font-bold'>
-            {randomItem?.title || randomItem?.name}
+            {randomItem.title || randomItem.name}
           </h1>
           {/* <p className='font-semibold text-gray-600'>{randomItem?.overview}</p> */}
         </div>
