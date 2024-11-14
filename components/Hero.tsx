@@ -1,15 +1,15 @@
-import Image from "next/image";
+// import Image from "next/image";
 import React from "react";
 
 const HeroSection = async () => {
-  const pathImg = "https://image.tmdb.org/t/p/original/";
+  // const pathImg = "https://image.tmdb.org/t/p/original/";
 
   const response = await fetch(
     `https://api.themoviedb.org/3/trending/all/day?api_key=${process.env.API_KEY}`
   );
 
   const results = await response.json();
-  const randomItem = results.results?.[Math.floor(Math.random() * 20)];
+  // const randomItem = results.results?.[Math.floor(Math.random() * 20)];
 
   return (
     <section className='max-w-[81rem] mx-auto h-screen relative mt-3 rounded-lg overflow-hidden'>
