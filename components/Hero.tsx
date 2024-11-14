@@ -23,7 +23,7 @@ const HeroSection = async () => {
   return (
     <section className='max-w-[81rem] mx-auto h-screen relative mt-3 rounded-lg overflow-hidden'>
       <div className='h-full'>
-        <div className='relative w-full h-full'>
+        {/* <div className='relative w-full h-full'>
           <Image
             src={`${pathImg}${results.belongs_to_collection?.backdrop_path}`}
             alt='hero movie img'
@@ -33,7 +33,7 @@ const HeroSection = async () => {
             }}
             priority
           />
-        </div>
+        </div> */}
         <div className='absolute top-1/2 left-1/2 transform -translate-x-1/2 translate-y-1/4 text-center flex flex-col lg:gap-y-2 pt-20 z-30'>
           <div className='w-max text-center mx-auto px-2 py-1 text-white rounded-full   bg-black dark:bg-white'>
             <p className='text-white dark:text-black'>Trending Now</p>
