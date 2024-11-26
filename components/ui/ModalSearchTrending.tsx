@@ -1,10 +1,4 @@
-import {
-  Modal,
-  ModalBody,
-  ModalContent,
-  ModalHeader,
-  useDisclosure,
-} from "@nextui-org/modal";
+import { Modal, ModalBody, ModalContent, ModalHeader } from "@nextui-org/modal";
 import React, { Suspense, useCallback, useEffect, useState } from "react";
 import { CiSearch } from "react-icons/ci";
 import { FiTrendingUp } from "react-icons/fi";

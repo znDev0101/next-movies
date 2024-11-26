@@ -1,17 +1,7 @@
-import {
-  Modal,
-  ModalContent,
-  ModalHeader,
-  ModalBody,
-  Button,
-  useDisclosure,
-} from "@nextui-org/react";
+import { Button, useDisclosure } from "@nextui-org/react";
 import { CiSearch } from "react-icons/ci";
-import React, { Suspense, useCallback, useEffect, useState } from "react";
+import React from "react";
 import { useHotkeys } from "react-hotkeys-hook";
-import { FiTrendingUp } from "react-icons/fi";
-import useDebounce from "@/hooks/useDebounce";
-import CardSearchTrending from "./CardSearchTrending";
 import ModalSearchTrending from "./ModalSearchTrending";
 
 const SearchBarNav = () => {
