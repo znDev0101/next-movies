@@ -14,32 +14,35 @@ const ModalSearchTrending = ({ isOpen, onOpenChange }: ModalProps) => {
   const [dataTreding, setDataTreding] = useState([]);
   //   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [searchKeyword, setSearchKeyword] = useState<string>("");
-  const [debouncedQuery] = useDebounce(searchKeyword, 500);
+  const [debouncedValue] = useDebounce(searchKeyword, 500);
 
-  const fetchResults = useCallback(async (searchKeyword: any) => {
-    if (searchKeyword.length !== 0) {
-      const response = await fetch(
-        `https://api.themoviedb.org/3/search/movie?query=${searchKeyword}&api_key=${process.env.API_KEY}`,
-      );
-      const data = await response.json();
-      setDataTreding(data.results);
-    }
+  const fetchResults = useCallback(
+    async (searchKeyword: string | (() => void)): Promise<void> => {
+      if (searchKeyword.length !== 0) {
+        const response = await fetch(
+          `https://api.themoviedb.org/3/search/movie?query=${searchKeyword}&api_key=${process.env.API_KEY}`,
+        );
+        const data = await response.json();
+        setDataTreding(data.results);
+      }
 
-    if (searchKeyword.length === 0) {
-      const response = await fetch(
-        `https://api.themoviedb.org/3/trending/all/day?api_key=${process.env.API_KEY}`,
-      );
-      const data = await response.json();
-      setDataTreding(data.results);
-    }
-  }, []);
+      if (searchKeyword.length === 0) {
+        const response = await fetch(
+          `https://api.themoviedb.org/3/trending/all/day?api_key=${process.env.API_KEY}`,
+        );
+        const data = await response.json();
+        setDataTreding(data.results);
+      }
+    },
+    [],
+  );
 
   useEffect(() => {
-    fetchResults(debouncedQuery);
+    fetchResults(debouncedValue);
     return () => {
       // cancelDebounce();
     };
-  }, [debouncedQuery]);
+  }, [debouncedValue]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchKeyword(e.target.value);
@@ -82,7 +85,7 @@ const ModalSearchTrending = ({ isOpen, onOpenChange }: ModalProps) => {
               </div>
             </div>
             <div className="grid lg:grid-cols-2">
-              {dataTreding?.slice(0, 6).map((data, i) => {
+              {dataTreding?.slice(0, 6).map((data, i: number) => {
                 return (
                   <Suspense fallback={<p>Loading...</p>} key={i}>
                     <CardSearchTrending data={data} />
