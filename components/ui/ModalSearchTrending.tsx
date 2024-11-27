@@ -12,19 +12,17 @@ interface ModalProps {
 
 const ModalSearchTrending = ({ isOpen, onOpenChange }: ModalProps) => {
   const [dataTreding, setDataTreding] = useState([]);
-  const [isLoading, setIsLoading] = useState<boolean>(false);
+  //   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [searchKeyword, setSearchKeyword] = useState<string>("");
-  const [debouncedQuery, cancelDebounce] = useDebounce(searchKeyword, 500);
+  const [debouncedQuery] = useDebounce(searchKeyword, 500);
 
   const fetchResults = useCallback(async (searchKeyword: any) => {
     if (searchKeyword.length !== 0) {
-      setIsLoading(true);
       const response = await fetch(
         `https://api.themoviedb.org/3/search/movie?query=${searchKeyword}&api_key=${process.env.API_KEY}`,
       );
       const data = await response.json();
       setDataTreding(data.results);
-      setIsLoading(false);
     }
 
     if (searchKeyword.length === 0) {
@@ -32,7 +30,6 @@ const ModalSearchTrending = ({ isOpen, onOpenChange }: ModalProps) => {
         `https://api.themoviedb.org/3/trending/all/day?api_key=${process.env.API_KEY}`,
       );
       const data = await response.json();
-      setIsLoading(false);
       setDataTreding(data.results);
     }
   }, []);
@@ -86,8 +83,6 @@ const ModalSearchTrending = ({ isOpen, onOpenChange }: ModalProps) => {
             </div>
             <div className="grid lg:grid-cols-2">
               {dataTreding?.slice(0, 6).map((data, i) => {
-                console.log(data);
-
                 return (
                   <Suspense fallback={<p>Loading...</p>} key={i}>
                     <CardSearchTrending data={data} />
