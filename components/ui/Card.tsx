@@ -18,7 +18,7 @@ const Card = ({
       href={`${data.media_type}/${data.id}`}
       className={`${searchQuery !== null ? `w-full` : `min-w-[calc(50%-0.5rem)] flex-shrink-0 snap-start rounded-md sm:min-w-[calc(33.333%-0.7rem)] lg:min-w-[calc(20%-.8rem)]`} `}
     >
-      <div className="relative h-72 w-full overflow-hidden rounded-md border border-gray-600 lg:h-96">
+      <div className="relative h-72 w-full overflow-hidden rounded-md border border-gray-300 lg:h-96">
         {data.poster_path === undefined || data.poster_path === null ? (
           <BiCameraMovie />
         ) : (
@@ -32,12 +32,12 @@ const Card = ({
             priority
           />
         )}
-        <div className="absolute bottom-5 z-40 flex flex-col px-5 font-semibold lg:bottom-5 lg:gap-y-1">
+        <div className="absolute bottom-5 z-40 flex flex-col px-3 font-semibold lg:bottom-5 lg:gap-y-1">
           <div className="flex gap-x-3">
-            <span className="rounded-full px-5 py-1 text-xs dark:bg-white dark:text-black">
+            <span className="rounded-full bg-[#181C14] px-5 py-1 text-xs text-white dark:bg-white dark:text-black">
               {data.vote_average}
             </span>
-            <span className="rounded-full px-2 py-1 text-xs dark:border dark:border-white">
+            <span className="rounded-full bg-[#181C14] px-2 py-1 text-xs text-white dark:border dark:border-white">
               {data.media_type}
             </span>
           </div>

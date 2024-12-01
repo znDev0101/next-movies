@@ -26,14 +26,19 @@ const SearchBarNav = () => {
       onChange={handleChange}
       placeholder="Type for search"
       classNames={{
-        input: "dark:text-gray-100 placeholder:dark:text-gray-100",
+        input:
+          "dark:text-gray-100 placeholder:dark:text-gray-100 placeholder:font-semibold",
         inputWrapper:
           "dark:bg-[#3C3D37] dark:hover:bg-[#4e5744] dark:focus-within:bg-[#3C3D37]",
       }}
       startContent={
-        <CiSearch className="flex flex-shrink-0 text-2xl text-gray-100" />
+        <CiSearch className="flex flex-shrink-0 text-2xl text-gray-700 dark:text-white" />
       }
-      endContent={term?.length === 0 && <p>CTRL+K</p>}
+      endContent={
+        term?.length === 0 && (
+          <p className="text-gray-700 dark:text-white">CTRL+K</p>
+        )
+      }
     />
   );
 };
