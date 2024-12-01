@@ -8,8 +8,8 @@ const ItemHero = ({ data }: { data: DataFromApi }) => {
   const imagePath = "https://image.tmdb.org/t/p/original";
 
   return (
-    <div className="relative w-full overflow-hidden rounded-lg border border-gray-300">
-      <div className="relative h-[70dvh] lg:h-[100dvh]">
+    <div className="relative h-96 w-full overflow-hidden rounded-lg border border-gray-300">
+      <div className="relative h-full">
         <Image
           src={`${imagePath}${data.poster_path}`}
           alt="poster image"
