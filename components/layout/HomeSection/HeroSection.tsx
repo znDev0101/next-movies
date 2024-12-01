@@ -13,7 +13,7 @@ const HeroSection = async () => {
   const imageBackDrop = `https://image.tmdb.org/t/p/original${results.results[randomIndex]?.backdrop_path}`;
 
   return (
-    <section className="relative z-40 mt-14 h-[88dvh]">
+    <section className="relative z-40 mt-10 h-[88dvh] lg:mt-14">
       <div className="relative h-full overflow-hidden rounded-lg">
         <Image
           alt="Mountains"
