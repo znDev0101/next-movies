@@ -1,6 +1,7 @@
 import { DataFromApi } from "@/types/DataFromApi";
 import Image from "next/image";
 import Link from "next/link";
+import { BiCameraMovie } from "react-icons/bi";
 
 const Card = ({
   data,
@@ -18,15 +19,19 @@ const Card = ({
       className={`${searchQuery !== null ? `w-full` : `min-w-[calc(50%-0.5rem)] flex-shrink-0 snap-start rounded-md sm:min-w-[calc(33.333%-0.7rem)] lg:min-w-[calc(20%-.8rem)]`} `}
     >
       <div className="relative h-72 w-full overflow-hidden rounded-md border border-gray-600 lg:h-96">
-        <Image
-          src={`${imagePath}${data?.poster_path}`}
-          alt={`poster path`}
-          fill
-          style={{
-            objectFit: "cover",
-          }}
-          priority
-        />
+        {data.poster_path === undefined || data.poster_path === null ? (
+          <BiCameraMovie />
+        ) : (
+          <Image
+            src={`${imagePath}${data.poster_path}`}
+            alt={`poster path`}
+            fill
+            style={{
+              objectFit: "cover",
+            }}
+            priority
+          />
+        )}
         <div className="absolute bottom-5 z-40 flex flex-col px-5 font-semibold lg:bottom-5 lg:gap-y-1">
           <div className="flex gap-x-3">
             <span className="rounded-full px-5 py-1 text-xs dark:bg-white dark:text-black">
