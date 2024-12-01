@@ -15,24 +15,22 @@ export default function CardSearch() {
   );
 
   return (
-    <main>
-      <div className="mt-20 flex flex-col items-center justify-center">
-        <h1 className="text-2xl font-semibold text-white">
-          Search results for
-        </h1>
-        <span className="text-xl">&quot;{query}&quot;</span>
-      </div>
-      <section className="m-5">
-        <div className="mt-10 grid grid-cols-2 gap-x-4 gap-y-3 sm:grid-cols-3 lg:grid-cols-5">
-          {data?.map((data: DataFromApi, i: number) => {
-            return (
-              <Suspense key={i} fallback={<p>Loading...</p>}>
-                <Card data={data} searchQuery={query} />
-              </Suspense>
-            );
-          })}
+    <Suspense fallback={<p>Loading...</p>}>
+      <main>
+        <div className="mt-20 flex flex-col items-center justify-center">
+          <h1 className="text-2xl font-semibold text-white">
+            Search results for
+          </h1>
+          <span className="text-xl">&quot;{query}&quot;</span>
         </div>
-      </section>
-    </main>
+        <section className="m-5">
+          <div className="mt-10 grid grid-cols-2 gap-x-4 gap-y-3 sm:grid-cols-3 lg:grid-cols-5">
+            {data?.map((data: DataFromApi, i: number) => {
+              return <Card data={data} searchQuery={query} key={i} />;
+            })}
+          </div>
+        </section>
+      </main>
+    </Suspense>
   );
 }
