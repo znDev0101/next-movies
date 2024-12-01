@@ -3,6 +3,7 @@ import Card from "@/components/ui/Card";
 import useFetch from "@/hooks/useFetch";
 import { DataFromApi } from "@/types/DataFromApi";
 import { useSearchParams } from "next/navigation";
+import { Suspense } from "react";
 
 export default function CardSearch() {
   const searchParams = useSearchParams();
@@ -24,7 +25,11 @@ export default function CardSearch() {
       <section className="m-5">
         <div className="mt-10 grid grid-cols-2 gap-x-4 gap-y-3 sm:grid-cols-3 lg:grid-cols-5">
           {data?.map((data: DataFromApi, i: number) => {
-            return <Card data={data} key={i} searchQuery={query} />;
+            return (
+              <Suspense key={i} fallback={<p>Loading...</p>}>
+                <Card data={data} searchQuery={query} />
+              </Suspense>
+            );
           })}
         </div>
       </section>
