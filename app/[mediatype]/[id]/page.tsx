@@ -7,7 +7,7 @@ export default async function Detail({
 
   return (
     <div className="">
-      <h1 className="text-center text-2xl text-white">Hello World</h1>
+      <h1 className="text-center text-2xl text-white">Hello World {id}</h1>
     </div>
   );
 }

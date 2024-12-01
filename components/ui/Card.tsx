@@ -4,7 +4,6 @@ import Link from "next/link";
 
 const Card = ({
   data,
-  id = undefined,
   searchQuery = null,
 }: {
   data: DataFromApi;

@@ -23,7 +23,7 @@ export default function CardSearch() {
       </div>
       <section className="m-5">
         <div className="mt-10 grid grid-cols-2 gap-x-4 gap-y-3 sm:grid-cols-3 lg:grid-cols-5">
-          {data?.map((data, i: number) => {
+          {data?.map((data: DataFromApi, i: number) => {
             return <Card data={data} key={i} searchQuery={query} />;
           })}
         </div>
