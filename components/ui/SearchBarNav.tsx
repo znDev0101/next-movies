@@ -1,30 +1,40 @@
-import { Button, useDisclosure } from "@nextui-org/react";
+import { Input } from "@nextui-org/react";
 import { CiSearch } from "react-icons/ci";
-import React from "react";
+import React, { useRef } from "react";
 import { useHotkeys } from "react-hotkeys-hook";
-import ModalSearchTrending from "./ModalSearchTrending";
+import useSearch from "@/hooks/useSearch";
 
 const SearchBarNav = () => {
-  const { isOpen, onOpen, onOpenChange } = useDisclosure();
+  const inputRef = useRef<HTMLInputElement>(null);
 
-  useHotkeys("ctrl+k", () => onOpen());
+  useHotkeys("ctrl+k", (event: KeyboardEvent) => {
+    event.preventDefault();
+    if (inputRef.current) {
+      inputRef.current.focus();
+    }
+  });
+
+  const auto = true;
+
+  const { term, handleChange } = useSearch(auto);
 
   return (
-    <>
-      <Button
-        onPress={onOpen}
-        className="flex w-4/5 items-center justify-start gap-x-4 rounded-lg bg-gray-100 font-semibold text-gray-500 dark:bg-[#3C3D37] lg:w-80 lg:justify-between"
-      >
-        <CiSearch className="text-xl dark:text-white lg:text-3xl" />
-        <span className="text-xs dark:text-white lg:text-lg">
-          Search for Movies...
-        </span>
-        <span className="hidden font-semibold dark:text-white lg:block">
-          CTRL+K
-        </span>
-      </Button>
-      <ModalSearchTrending isOpen={isOpen} onOpenChange={onOpenChange} />
-    </>
+    <Input
+      ref={inputRef}
+      value={term}
+      isClearable={term?.length !== 0}
+      onChange={handleChange}
+      placeholder="Type for search"
+      classNames={{
+        input: "dark:text-gray-100 placeholder:dark:text-gray-100",
+        inputWrapper:
+          "dark:bg-[#3C3D37] dark:hover:bg-[#4e5744] dark:focus-within:bg-[#3C3D37]",
+      }}
+      startContent={
+        <CiSearch className="flex flex-shrink-0 text-2xl text-gray-100" />
+      }
+      endContent={term?.length === 0 && <p>CTRL+K</p>}
+    />
   );
 };
 

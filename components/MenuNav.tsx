@@ -18,7 +18,7 @@ const MenuNav = ({ data }: { data: PropsMenuNav }) => {
       </div>
       {isShowDropDown && (
         <div
-          className={`absolute left-0 top-[3.3rem] grid w-[47rem] scale-0 grid-cols-2 grid-rows-2 gap-x-3 gap-y-5 rounded-lg border border-gray-300 bg-white p-5 shadow-lg dark:bg-[#181C14] ${
+          className={`absolute left-0 top-[3.3rem] z-50 grid w-[47rem] scale-0 grid-cols-2 grid-rows-2 gap-x-3 gap-y-5 rounded-lg border border-gray-300 bg-white p-5 shadow-lg dark:bg-[#181C14] ${
             isShowDropDown && "scale-100"
           } duration-200`}
         >
