@@ -19,7 +19,7 @@ export default function CardSearch() {
         <h1 className="text-2xl font-semibold text-white">
           Search results for
         </h1>
-        <span className="text-xl">"{query}"</span>
+        <span className="text-xl">&quot;{query}&quot;</span>
       </div>
       <section className="m-5">
         <div className="mt-10 grid grid-cols-2 gap-x-4 gap-y-3 sm:grid-cols-3 lg:grid-cols-5">
