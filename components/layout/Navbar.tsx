@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { Suspense } from "react";
 import MenuBar from "./MenuBar";
 import { RiMovie2Line } from "react-icons/ri";
 import { TfiHome } from "react-icons/tfi";
@@ -41,7 +41,9 @@ const Navbar = () => {
           </ul>
         </nav>
         <div className="flex w-full items-center justify-end gap-x-3 lg:w-[27rem]">
-          <SearchBarNav />
+          <Suspense fallback={<p>Loading...</p>}>
+            <SearchBarNav />
+          </Suspense>
           <ThemeSwitch />
           <MobileMenu />
         </div>
