@@ -64,6 +64,7 @@ const ThemeSwitch = () => {
           classNames={{
             base: "dark:bg-[#3C3D37]",
           }}
+          endContent={window.innerWidth > 430 && data.icon}
         >
           {window.innerWidth < 430 ? data.icon : data.titleTheme}
         </SelectItem>
