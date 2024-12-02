@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, ChangeEvent } from "react";
+import { useState, useEffect } from "react";
 import { useTheme } from "next-themes";
 // import { PiMonitor, PiSun } from "react-icons/pi";
 // import { FaMoon } from "react-icons/fa";
