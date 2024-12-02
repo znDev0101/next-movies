@@ -2,9 +2,9 @@
 
 import { useState, useEffect, ChangeEvent } from "react";
 import { useTheme } from "next-themes";
-import { PiMonitor, PiSun } from "react-icons/pi";
-import { FaMoon } from "react-icons/fa";
-import { Select, SelectItem } from "@nextui-org/select";
+// import { PiMonitor, PiSun } from "react-icons/pi";
+// import { FaMoon } from "react-icons/fa";
+// import { Select, SelectItem } from "@nextui-org/select";
 import {
   Button,
   Dropdown,
@@ -17,23 +17,23 @@ const ThemeSwitch = () => {
   const [mounted, setMounted] = useState(false);
   const { theme, setTheme } = useTheme();
 
-  const dataThemes = [
-    {
-      titleTheme: "System",
-      theme: "system",
-      icon: <PiMonitor />,
-    },
-    {
-      titleTheme: "Light",
-      theme: "light",
-      icon: <PiSun />,
-    },
-    {
-      titleTheme: "Dark",
-      theme: "dark",
-      icon: <FaMoon />,
-    },
-  ];
+  // const dataThemes = [
+  //   {
+  //     titleTheme: "System",
+  //     theme: "system",
+  //     icon: <PiMonitor />,
+  //   },
+  //   {
+  //     titleTheme: "Light",
+  //     theme: "light",
+  //     icon: <PiSun />,
+  //   },
+  //   {
+  //     titleTheme: "Dark",
+  //     theme: "dark",
+  //     icon: <FaMoon />,
+  //   },
+  // ];
 
   // useEffect only runs on the client, so now we can safely show the UI
   useEffect(() => {
