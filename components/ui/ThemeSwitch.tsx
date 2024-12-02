@@ -5,6 +5,13 @@ import { useTheme } from "next-themes";
 import { PiMonitor, PiSun } from "react-icons/pi";
 import { FaMoon } from "react-icons/fa";
 import { Select, SelectItem } from "@nextui-org/select";
+import {
+  Button,
+  Dropdown,
+  DropdownItem,
+  DropdownMenu,
+  DropdownTrigger,
+} from "@nextui-org/react";
 
 const ThemeSwitch = () => {
   const [mounted, setMounted] = useState(false);
@@ -38,38 +45,51 @@ const ThemeSwitch = () => {
   }
 
   return (
-    <Select
-      value={theme}
-      defaultSelectedKeys={[`${theme}`]}
-      selectorIcon={
-        theme === "light" ? (
-          <PiSun />
-        ) : theme === "dark" ? (
-          <FaMoon />
-        ) : (
-          <PiMonitor />
-        )
-      }
-      classNames={{
-        base: "w-12 lg:w-32",
-        listboxWrapper: "w-max",
-      }}
-      onChange={(e: ChangeEvent<HTMLSelectElement>) => setTheme(e.target.value)}
-      disableSelectorIconRotation
-    >
-      {dataThemes.map((data) => (
-        <SelectItem
-          key={data.theme}
-          value={data.theme}
-          classNames={{
-            base: "dark:bg-[#3C3D37]",
-          }}
-          endContent={window.innerWidth > 430 && data.icon}
-        >
-          {window.innerWidth < 430 ? data.icon : data.titleTheme}
-        </SelectItem>
-      ))}
-    </Select>
+    <Dropdown>
+      <DropdownTrigger>
+        <Button>{theme === "dark" ? "Dark Mode" : "Light Mode"}</Button>
+      </DropdownTrigger>
+      <DropdownMenu aria-label="Theme selection">
+        <DropdownItem key="light" onClick={() => setTheme("light")}>
+          Light Mode
+        </DropdownItem>
+        <DropdownItem key="dark" onClick={() => setTheme("dark")}>
+          Dark Mode
+        </DropdownItem>
+      </DropdownMenu>
+    </Dropdown>
+    // <Select
+    //   value={theme}
+    //   defaultSelectedKeys={[`${theme}`]}
+    //   selectorIcon={
+    //     theme === "light" ? (
+    //       <PiSun />
+    //     ) : theme === "dark" ? (
+    //       <FaMoon />
+    //     ) : (
+    //       <PiMonitor />
+    //     )
+    //   }
+    //   classNames={{
+    //     base: "w-12 lg:w-32",
+    //     listboxWrapper: "w-max",
+    //   }}
+    //   onChange={(e: ChangeEvent<HTMLSelectElement>) => setTheme(e.target.value)}
+    //   disableSelectorIconRotation
+    // >
+    //   {dataThemes.map((data) => (
+    //     <SelectItem
+    //       key={data.theme}
+    //       value={data.theme}
+    //       classNames={{
+    //         base: "dark:bg-[#3C3D37]",
+    //       }}
+    //       endContent={window.innerWidth > 430 && data.icon}
+    //     >
+    //       {window.innerWidth < 430 ? data.icon : data.titleTheme}
+    //     </SelectItem>
+    //   ))}
+    // </Select>
   );
 };
 
