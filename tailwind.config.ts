@@ -12,18 +12,5 @@ export default {
     extend: {},
   },
   darkMode: "class",
-  plugins: [
-    nextui({
-      themes: {
-        dark: {
-          colors: {
-            primary: {
-              DEFAULT: "#181C14",
-            },
-            // ... other colors
-          },
-        },
-      },
-    }),
-  ],
+  plugins: [nextui()],
 } satisfies Config;

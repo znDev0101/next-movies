@@ -12,7 +12,7 @@ export default function useSearch(auto: boolean = true) {
   const [term, setTerm] = useState("");
   const [value] = useDebounce(term, 500);
 
-  function handleSearch(value: string) {
+  function handleSearch(value: string): void {
     if (value !== "") {
       router.push(`/search?query=${value}`);
 
@@ -49,9 +49,13 @@ export default function useSearch(auto: boolean = true) {
     }
   }, [value, auto]);
 
-  function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
+  function handleChange(event: React.ChangeEvent<HTMLInputElement>): void {
     setTerm(event.target.value);
   }
 
-  return { term, handleChange };
+  function clearSearchQuery(): void {
+    setTerm("");
+  }
+
+  return { term, handleChange, clearSearchQuery };
 }

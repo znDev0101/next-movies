@@ -2,38 +2,61 @@
 
 import { useState, useEffect } from "react";
 import { useTheme } from "next-themes";
-// import { PiMonitor, PiSun } from "react-icons/pi";
-// import { FaMoon } from "react-icons/fa";
-// import { Select, SelectItem } from "@nextui-org/select";
+import { PiMonitor, PiSun } from "react-icons/pi";
+import { FaMoon } from "react-icons/fa";
+
 import {
   Button,
   Dropdown,
   DropdownItem,
   DropdownMenu,
+  DropdownSection,
   DropdownTrigger,
+  extendVariants,
+  User,
 } from "@nextui-org/react";
+import { IconType } from "react-icons";
+
+interface ThemeData {
+  theme: string;
+  titleTheme: string;
+  Icon: IconType;
+}
 
 const ThemeSwitch = () => {
   const [mounted, setMounted] = useState(false);
   const { theme, setTheme } = useTheme();
 
-  // const dataThemes = [
-  //   {
-  //     titleTheme: "System",
-  //     theme: "system",
-  //     icon: <PiMonitor />,
-  //   },
-  //   {
-  //     titleTheme: "Light",
-  //     theme: "light",
-  //     icon: <PiSun />,
-  //   },
-  //   {
-  //     titleTheme: "Dark",
-  //     theme: "dark",
-  //     icon: <FaMoon />,
-  //   },
-  // ];
+  const dataThemes: ThemeData[] = [
+    {
+      titleTheme: "System",
+      theme: "system",
+      Icon: PiMonitor,
+    },
+    {
+      titleTheme: "Light",
+      theme: "light",
+      Icon: PiSun,
+    },
+    {
+      titleTheme: "Dark",
+      theme: "dark",
+      Icon: FaMoon,
+    },
+  ];
+
+  const MyButton = extendVariants(Button, {
+    variants: {
+      size: {
+        xs: "px-2 min-w-10 h-10 text-tiny gap-1 rounded-small",
+        md: "px-4 min-w-20 h-10 text-small gap-2 rounded-small",
+        xl: "px-8 min-w-28 h-14 text-large gap-4 rounded-medium",
+      },
+    },
+    defaultVariants: {
+      size: "xl",
+    },
+  });
 
   // useEffect only runs on the client, so now we can safely show the UI
   useEffect(() => {
@@ -47,49 +70,32 @@ const ThemeSwitch = () => {
   return (
     <Dropdown>
       <DropdownTrigger>
-        <Button>{theme === "dark" ? "Dark Mode" : "Light Mode"}</Button>
+        <MyButton size="xs" className="items-center">
+          {theme === "dark" ? (
+            <FaMoon className="text-xl dark:text-white" />
+          ) : theme === "light" ? (
+            <PiSun className="text-xl dark:text-white" />
+          ) : (
+            <PiMonitor className="text-xl dark:text-white" />
+          )}
+        </MyButton>
       </DropdownTrigger>
-      <DropdownMenu aria-label="Theme selection">
-        <DropdownItem key="light" onClick={() => setTheme("light")}>
-          Light Mode
-        </DropdownItem>
-        <DropdownItem key="dark" onClick={() => setTheme("dark")}>
-          Dark Mode
-        </DropdownItem>
+      <DropdownMenu>
+        {dataThemes.map((data) => {
+          const { Icon } = data;
+
+          return (
+            <DropdownItem
+              key={data.theme}
+              onClick={() => setTheme(data.theme)}
+              endContent={<Icon />}
+            >
+              {data.titleTheme}
+            </DropdownItem>
+          );
+        })}
       </DropdownMenu>
     </Dropdown>
-    // <Select
-    //   value={theme}
-    //   defaultSelectedKeys={[`${theme}`]}
-    //   selectorIcon={
-    //     theme === "light" ? (
-    //       <PiSun />
-    //     ) : theme === "dark" ? (
-    //       <FaMoon />
-    //     ) : (
-    //       <PiMonitor />
-    //     )
-    //   }
-    //   classNames={{
-    //     base: "w-12 lg:w-32",
-    //     listboxWrapper: "w-max",
-    //   }}
-    //   onChange={(e: ChangeEvent<HTMLSelectElement>) => setTheme(e.target.value)}
-    //   disableSelectorIconRotation
-    // >
-    //   {dataThemes.map((data) => (
-    //     <SelectItem
-    //       key={data.theme}
-    //       value={data.theme}
-    //       classNames={{
-    //         base: "dark:bg-[#3C3D37]",
-    //       }}
-    //       endContent={window.innerWidth > 430 && data.icon}
-    //     >
-    //       {window.innerWidth < 430 ? data.icon : data.titleTheme}
-    //     </SelectItem>
-    //   ))}
-    // </Select>
   );
 };
 

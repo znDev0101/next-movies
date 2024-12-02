@@ -17,7 +17,7 @@ const CardSearch = () => {
   return (
     <main>
       <div className="mt-20 flex flex-col items-center justify-center">
-        <h1 className="text-2xl font-semibold text-white">
+        <h1 className="text-2xl font-semibold text-black dark:text-white">
           Search results for
         </h1>
         <span className="text-xl">&quot;{query}&quot;</span>

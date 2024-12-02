@@ -1,5 +1,7 @@
 import { Input } from "@nextui-org/react";
 import { CiSearch } from "react-icons/ci";
+import { FaCircleXmark } from "react-icons/fa6";
+
 import React, { useRef } from "react";
 import { useHotkeys } from "react-hotkeys-hook";
 import useSearch from "@/hooks/useSearch";
@@ -16,13 +18,12 @@ const SearchBarNav = () => {
 
   const auto = true;
 
-  const { term, handleChange } = useSearch(auto);
+  const { term, handleChange, clearSearchQuery } = useSearch(auto);
 
   return (
     <Input
       ref={inputRef}
       value={term}
-      isClearable={term?.length !== 0}
       onChange={handleChange}
       placeholder="Type for search"
       classNames={{
@@ -35,8 +36,15 @@ const SearchBarNav = () => {
         <CiSearch className="flex flex-shrink-0 text-2xl text-gray-700 dark:text-white" />
       }
       endContent={
-        term?.length === 0 && (
-          <p className="text-gray-700 dark:text-white">CTRL+K</p>
+        term.length === 0 ? (
+          <p className="hidden text-gray-700 dark:text-white lg:block">
+            CTRL+K
+          </p>
+        ) : (
+          <FaCircleXmark
+            onClick={clearSearchQuery}
+            className="text-xl text-gray-500 hover:cursor-pointer dark:text-white"
+          />
         )
       }
     />
