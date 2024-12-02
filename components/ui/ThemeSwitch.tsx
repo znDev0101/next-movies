@@ -10,10 +10,8 @@ import {
   Dropdown,
   DropdownItem,
   DropdownMenu,
-  DropdownSection,
   DropdownTrigger,
   extendVariants,
-  User,
 } from "@nextui-org/react";
 import { IconType } from "react-icons";
 
