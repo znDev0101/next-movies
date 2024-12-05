@@ -1,10 +1,10 @@
 "use client";
 
 import useFetch from "@/hooks/useFetch";
-import { DataFromApi } from "@/types/dataFromApi";
 import { useSearchParams } from "next/navigation";
 import React from "react";
 import Card from "./Card";
+import { IAllList } from "@/types/allList";
 
 const CardSearch = () => {
   const searchParams = useSearchParams();
@@ -24,7 +24,7 @@ const CardSearch = () => {
       </div>
       <section className="m-5">
         <div className="mt-10 grid grid-cols-2 gap-x-4 gap-y-3 sm:grid-cols-3 lg:grid-cols-5">
-          {data?.map((data: DataFromApi, i: number) => {
+          {data?.map((data: IAllList, i: number) => {
             return <Card data={data} searchQuery={query} key={i} />;
           })}
         </div>

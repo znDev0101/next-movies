@@ -1,5 +1,5 @@
 import Card from "@/components/ui/Card";
-import { DataFromApi } from "@/types/dataFromApi";
+import { IAllList } from "@/types/allList";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -27,7 +27,7 @@ export default async function popular() {
           </p>
         </div>
         <div className="mt-10 grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-5">
-          {results.map((data: DataFromApi, i: number) => {
+          {results.map((data: IAllList, i: number) => {
             return <Card data={data} key={i} mediatype="movie" />;
           })}
         </div>

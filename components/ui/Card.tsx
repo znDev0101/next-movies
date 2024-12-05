@@ -1,18 +1,22 @@
-import { DataFromApi } from "@/types/dataFromApi";
+import { IAllList } from "@/types/allList";
 import Image from "next/image";
 import Link from "next/link";
 import { BiCameraMovie } from "react-icons/bi";
 
-interface PropsCard {
-  data: DataFromApi;
+interface CardProps<T> {
+  data: T;
   searchQuery?: string | null;
   mediatype?: string;
 }
 
-const Card = ({ data, searchQuery = null, mediatype }: PropsCard) => {
+const Card = <T,>({
+  data,
+  searchQuery = null,
+  mediatype,
+}: CardProps<IAllList>) => {
   return (
     <Link
-      href={`/${data.media_type === undefined ? `${mediatype}` : `${data.media_type}`}/${data.id}`}
+      href={`/${mediatype !== undefined ? `${mediatype}` : `${data.media_type}`}/${data.id}`}
       className={`${searchQuery !== null ? `w-full` : `min-w-[calc(50%-0.5rem)] flex-shrink-0 snap-start rounded-md sm:min-w-[calc(33.333%-0.7rem)] lg:min-w-[calc(20%-.8rem)]`} `}
     >
       <div className="relative h-72 w-full overflow-hidden rounded-md border border-gray-300 lg:h-96">

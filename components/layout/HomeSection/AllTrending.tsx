@@ -1,5 +1,5 @@
 import Card from "@/components/ui/Card";
-import { DataFromApi } from "@/types/dataFromApi";
+import { IAllList } from "@/types/allList";
 import { Button } from "@nextui-org/button";
 import React from "react";
 
@@ -18,7 +18,7 @@ const AllTrending = async () => {
         </Button>
       </div>
       <div className="my-5 flex snap-x snap-mandatory space-x-4 overflow-x-scroll scroll-smooth scrollbar-hide">
-        {results.map((data: DataFromApi, i: number) => {
+        {results.map((data: IAllList, i: number) => {
           return <Card data={data} key={i} />;
         })}
       </div>

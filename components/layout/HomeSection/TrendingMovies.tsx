@@ -1,5 +1,5 @@
 import Card from "@/components/ui/Card";
-import { DataFromApi } from "@/types/dataFromApi";
+import { ITrendingMovie } from "@/types/trendingMovie";
 import { Button } from "@nextui-org/button";
 
 export default async function TrendingMovies() {
@@ -18,7 +18,7 @@ export default async function TrendingMovies() {
         </Button>
       </div>
       <div className="my-5 flex snap-x snap-mandatory space-x-4 overflow-x-scroll scroll-smooth scrollbar-hide">
-        {results.map((data: DataFromApi, i: number) => {
+        {results.map((data: ITrendingMovie, i: number) => {
           return <Card data={data} key={i} />;
         })}
       </div>

@@ -1,5 +1,5 @@
 import ItemHero from "@/components/ui/ItemHero";
-import { DataFromApi } from "@/types/dataFromApi";
+import { IAllList } from "@/types/allList";
 import React from "react";
 
 const HeroTv = async () => {
@@ -10,7 +10,7 @@ const HeroTv = async () => {
   return (
     <section className="my-10">
       <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
-        {data.results.slice(0, 4).map((data: DataFromApi, i: number) => {
+        {data.results.slice(0, 4).map((data: IAllList, i: number) => {
           return <ItemHero data={data} key={i} />;
         })}
       </div>

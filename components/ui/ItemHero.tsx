@@ -1,10 +1,10 @@
-import { DataFromApi } from "@/types/dataFromApi";
+import { IAllList } from "@/types/allList";
 import { Button } from "@nextui-org/button";
 import Image from "next/image";
 import React from "react";
 import { FaArrowRightLong } from "react-icons/fa6";
 
-const ItemHero = ({ data }: { data: DataFromApi }) => {
+const ItemHero = ({ data }: { data: IAllList }) => {
   return (
     <div className="relative h-[30rem] w-full overflow-hidden rounded-lg border border-gray-300 lg:h-[40rem]">
       <div className="relative h-full">
