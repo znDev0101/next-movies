@@ -9,11 +9,7 @@ interface CardProps<T> {
   mediatype?: string;
 }
 
-const Card = <T,>({
-  data,
-  searchQuery = null,
-  mediatype,
-}: CardProps<IAllList>) => {
+const Card = ({ data, searchQuery = null, mediatype }: CardProps<IAllList>) => {
   return (
     <Link
       href={`/${mediatype !== undefined ? `${mediatype}` : `${data.media_type}`}/${data.id}`}
