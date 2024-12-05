@@ -22,7 +22,8 @@ export default async function popular() {
           <p className="mt-2 text-lg text-gray-700 dark:text-gray-400">
             Dive into the world of popular movies that have captured the hearts
             of audiences worldwide. From blockbuster hits to critically
-            acclaimed films, discover what's trending in the cinematic universe.
+            acclaimed films, discover what&apos;s trending in the cinematic
+            universe.
           </p>
         </div>
         <div className="mt-10 grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-5">

@@ -1,7 +1,8 @@
+import { DataFromApi } from "@/types/dataFromApi";
 import Image from "next/image";
 import React from "react";
 
-const HeroImage = ({ data }: { data: any }) => {
+const HeroImage = ({ data }: { data: DataFromApi }) => {
   return (
     <section className="mx-auto mt-16 w-[95%] overflow-hidden rounded-xl">
       <div className="relative h-[85vh]">
