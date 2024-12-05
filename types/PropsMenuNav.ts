@@ -1,4 +1,3 @@
-import MenuNav from "@/components/MenuNav";
 import { IconType } from "react-icons";
 
 interface MenuDropDownItem {
