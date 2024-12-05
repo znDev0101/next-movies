@@ -1,7 +1,7 @@
 "use client";
 
 import useFetch from "@/hooks/useFetch";
-import { DataFromApi } from "@/types/DataFromApi";
+import { DataFromApi } from "@/types/dataFromApi";
 import { useSearchParams } from "next/navigation";
 import React from "react";
 import Card from "./Card";

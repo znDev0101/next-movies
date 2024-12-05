@@ -1,18 +1,18 @@
 import Card from "@/components/ui/Card";
 import { DataFromApi } from "@/types/dataFromApi";
 import { Button } from "@nextui-org/button";
+import React from "react";
 
-export default async function TrendingMovies() {
+const AllTrending = async () => {
   const response = await fetch(
-    `https://api.themoviedb.org/3/trending/movie/day?api_key=${process.env.API_KEY}`,
+    `https://api.themoviedb.org/3/trending/all/day?api_key=${process.env.API_KEY}`,
   );
-
   const { results } = await response.json();
 
   return (
-    <section className="my-10 w-full">
-      <div className="flex items-center gap-x-5">
-        <h1 className="text-2xl font-bold">Trending Movies</h1>
+    <section className="my-10">
+      <div className="flex gap-x-3">
+        <h1 className="text-2xl font-bold">Trending Today</h1>
         <Button className="font-semibold dark:bg-[#3C3D37]">
           Explore more
         </Button>
@@ -24,4 +24,6 @@ export default async function TrendingMovies() {
       </div>
     </section>
   );
-}
+};
+
+export default AllTrending;

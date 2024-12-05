@@ -1,21 +1,18 @@
-import { DataFromApi } from "@/types/DataFromApi";
+import { DataFromApi } from "@/types/dataFromApi";
 import Image from "next/image";
 import Link from "next/link";
 import { BiCameraMovie } from "react-icons/bi";
 
-const Card = ({
-  data,
-  searchQuery = null,
-}: {
+interface PropsCard {
   data: DataFromApi;
-  id?: string | undefined;
   searchQuery?: string | null;
-}) => {
-  const imagePath: string = "https://image.tmdb.org/t/p/w500";
+  mediatype?: string;
+}
 
+const Card = ({ data, searchQuery = null, mediatype }: PropsCard) => {
   return (
     <Link
-      href={`${data.media_type}/${data.id}`}
+      href={`/${data.media_type === undefined ? `${mediatype}` : `${data.media_type}`}/${data.id}`}
       className={`${searchQuery !== null ? `w-full` : `min-w-[calc(50%-0.5rem)] flex-shrink-0 snap-start rounded-md sm:min-w-[calc(33.333%-0.7rem)] lg:min-w-[calc(20%-.8rem)]`} `}
     >
       <div className="relative h-72 w-full overflow-hidden rounded-md border border-gray-300 lg:h-96">
@@ -23,7 +20,7 @@ const Card = ({
           <BiCameraMovie />
         ) : (
           <Image
-            src={`${imagePath}${data.poster_path}`}
+            src={`${process.env.NEXT_PUBLIC_IMG_PATH}/w500${data.poster_path}`}
             alt={`poster path`}
             fill
             style={{
@@ -37,9 +34,11 @@ const Card = ({
             <span className="rounded-full bg-[#181C14] px-5 py-1 text-xs text-white dark:bg-white dark:text-black">
               {data.vote_average}
             </span>
-            <span className="rounded-full bg-[#181C14] px-2 py-1 text-xs text-white dark:border dark:border-white">
-              {data.media_type}
-            </span>
+            {data.media_type !== undefined && (
+              <span className="rounded-full bg-[#181C14] px-2 py-1 text-xs text-white dark:border dark:border-white">
+                {data.media_type}
+              </span>
+            )}
           </div>
           <h1 className="line-clamp-1 text-xl">{data.name || data.title}</h1>
           <span className="dark:text-gray-400">

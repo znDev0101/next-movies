@@ -1,7 +1,10 @@
 export interface DataFromApi {
   adult: boolean;
   backdrop_path: string;
-  genre_ids: number[]; // Array of numbers
+  genre_ids?: number[]; // Array of numbers for media type movie
+  created_by?: number | string | null[];
+  episode_run_time?: any[];
+  genres?: string | number[];
   id: number;
   media_type: string;
   original_language: string;

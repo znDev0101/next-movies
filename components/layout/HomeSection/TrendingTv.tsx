@@ -1,5 +1,5 @@
 import Card from "@/components/ui/Card";
-import { DataFromApi } from "@/types/DataFromApi";
+import { DataFromApi } from "@/types/dataFromApi";
 import { Button } from "@nextui-org/button";
 import React from "react";
 

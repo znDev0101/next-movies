@@ -1,5 +1,5 @@
 import ItemHero from "@/components/ui/ItemHero";
-import { DataFromApi } from "@/types/DataFromApi";
+import { DataFromApi } from "@/types/dataFromApi";
 import React from "react";
 
 const HeroTv = async () => {

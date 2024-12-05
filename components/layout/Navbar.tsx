@@ -24,14 +24,12 @@ const Navbar = () => {
           <Link href={"/"}>
             <RiMovie2Line className="text-4xl" />
           </Link>
-          <ul className="hidden gap-x-7 font-semibold lg:flex">
+          <ul className="hidden items-center gap-x-7 font-semibold lg:flex">
             <li
-              className={`hover:cursor-pointer ${
-                pathname === "/" && "bg-gray-100 px-4 py-2 dark:bg-[#4e5744]"
-              } rounded-md`}
+              className={`${pathname === "/" ? "bg-gray-100" : "hover:bg-gray-100"} rounded-md px-4 py-2 hover:cursor-pointer`}
             >
-              <Link href={"/"} className="flex items-center gap-x-3 text-lg">
-                <TfiHome className="font-bold" />
+              <Link href={"/"} className="flex items-end gap-x-3">
+                <TfiHome className="text-2xl font-bold" />
                 Home
               </Link>
             </li>
@@ -40,7 +38,7 @@ const Navbar = () => {
             })}
           </ul>
         </nav>
-        <div className="flex w-full items-center justify-end gap-x-3 lg:w-[27rem]">
+        <div className="flex w-full items-center justify-end gap-x-2 lg:w-[27rem]">
           <Suspense fallback={<p>Loading...</p>}>
             <SearchBarNav />
           </Suspense>

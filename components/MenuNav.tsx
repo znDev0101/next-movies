@@ -1,4 +1,5 @@
-import { PropsMenuNav } from "@/types/PropsMenuNav";
+import { PropsMenuNav } from "@/types/propsMenuNav";
+import Link from "next/link";
 import React, { useState } from "react";
 
 const MenuNav = ({ data }: { data: PropsMenuNav }) => {
@@ -32,7 +33,11 @@ const MenuNav = ({ data }: { data: PropsMenuNav }) => {
           {data.menuDropDown.map((data, i) => {
             const { Icon } = data;
             return (
-              <div className="flex flex-col gap-y-2" key={i}>
+              <Link
+                href={`/movie/${data.nameDropDown.replace(/\s+/g, "").toLocaleLowerCase()}`}
+                className="flex flex-col gap-y-2 rounded-lg p-2 dark:hover:dark:bg-[#3C3D37]"
+                key={i}
+              >
                 <div className="flex items-center gap-x-3">
                   <Icon />
                   {data.nameDropDown}
@@ -40,7 +45,7 @@ const MenuNav = ({ data }: { data: PropsMenuNav }) => {
                 <p className="line-clamp-2 text-gray-500 dark:text-gray-300">
                   {data.description}
                 </p>
-              </div>
+              </Link>
             );
           })}
         </div>

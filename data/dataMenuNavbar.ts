@@ -3,6 +3,9 @@ import { TbDeviceTv } from "react-icons/tb";
 import { FaChevronDown } from "react-icons/fa6";
 import { IoPlayOutline } from "react-icons/io5";
 import { HiTrendingUp } from "react-icons/hi";
+import { CiStar } from "react-icons/ci";
+import { IoMdHeartEmpty } from "react-icons/io";
+import { MdOutlineCalendarMonth } from "react-icons/md";
 
 export const dataMenuNavbar = [
   {
@@ -14,27 +17,31 @@ export const dataMenuNavbar = [
     menuDropDown: [
       {
         nameDropDown: "Now Playing",
+        typeLink: "movie",
         description:
           "Catch the latest movies now playing in theaters near you. Experience the magic of cinema with current hits.",
         Icon: IoPlayOutline,
       },
       {
         nameDropDown: "Top Rated",
+        typeLink: "movie",
         description:
           "Explore the pinnacle of cinematic excellence with our collection of top-rated movies. These films have been recognized for their outstanding storytelling, direction, and performances.",
-        Icon: IoPlayOutline,
+        Icon: CiStar,
       },
       {
         nameDropDown: "Popular",
+        typeLink: "movie",
         description:
           "Dive into the world of popular movies that have captured the hearts of audiences worldwide. From blockbuster hits to critically acclaimed films, discover what's trending in the cinematic universe.",
-        Icon: IoPlayOutline,
+        Icon: IoMdHeartEmpty,
       },
       {
         nameDropDown: "Up Coming",
+        typeLink: "movie",
         description:
           "Be the first to watch the latest movies before they hit the big screen. Discover the upcoming movies that everyone is talking about.",
-        Icon: IoPlayOutline,
+        Icon: MdOutlineCalendarMonth,
       },
     ],
   },
@@ -47,24 +54,28 @@ export const dataMenuNavbar = [
     menuDropDown: [
       {
         nameDropDown: "Airing Today",
+        typeLink: "tvshow",
         description:
           "Don't miss out on the latest episodes of your favorite TV shows airing today. Stay up-to-date with the newest content from networks and streaming platforms.",
         Icon: IoPlayOutline,
       },
       {
         nameDropDown: "Top Rated",
+        typeLink: "tvshow",
         description:
           "Explore the pinnacle of television excellence with our collection of top-rated TV shows. These series have been recognized for their outstanding storytelling, acting, and production values.",
-        Icon: IoPlayOutline,
+        Icon: CiStar,
       },
       {
         nameDropDown: "Popular",
+        typeLink: "tvshow",
         description:
           "Dive into the world of popular TV shows that have captured the hearts of audiences worldwide. From binge-worthy series to critically acclaimed dramas, discover what's trending in the TV universe.",
-        Icon: IoPlayOutline,
+        Icon: IoMdHeartEmpty,
       },
       {
         nameDropDown: "On The Air",
+        typeLink: "tvshow",
         description:
           "Tune in to the latest buzz with shows currently on the air. From gripping dramas to laugh-out-loud comedies, watch what's captivating audiences right now.",
         Icon: IoPlayOutline,
@@ -82,13 +93,13 @@ export const dataMenuNavbar = [
         nameDropDown: "Movies",
         description:
           "Stay on the pulse of what's hot in the movie scene. See what films are making waves and capturing audiences around the globe.",
-        Icon: IoPlayOutline,
+        Icon: BiCameraMovie,
       },
       {
         nameDropDown: "Tv Shows",
         description:
           "Catch up with the world and see what TV shows are currently trending. From viral sensations to critically acclaimed series, find out what's capturing viewers' attention.",
-        Icon: IoPlayOutline,
+        Icon: TbDeviceTv,
       },
     ],
   },

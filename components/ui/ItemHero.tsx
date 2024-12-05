@@ -1,17 +1,15 @@
-import { DataFromApi } from "@/types/DataFromApi";
+import { DataFromApi } from "@/types/dataFromApi";
 import { Button } from "@nextui-org/button";
 import Image from "next/image";
 import React from "react";
 import { FaArrowRightLong } from "react-icons/fa6";
 
 const ItemHero = ({ data }: { data: DataFromApi }) => {
-  const imagePath = "https://image.tmdb.org/t/p/original";
-
   return (
     <div className="relative h-[30rem] w-full overflow-hidden rounded-lg border border-gray-300 lg:h-[40rem]">
       <div className="relative h-full">
         <Image
-          src={`${imagePath}${data.poster_path}`}
+          src={`${process.env.NEXT_PUBLIC_IMG_PATH}/original${data.poster_path}`}
           alt="poster image"
           fill
           style={{
