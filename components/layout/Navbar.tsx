@@ -33,7 +33,7 @@ const Navbar = () => {
                 Home
               </Link>
             </li>
-            {dataMenuNavbar.map((data, i) => {
+            {dataMenuNavbar.map((data, i: number) => {
               return <MenuNav data={data} key={i} />;
             })}
           </ul>

@@ -6,7 +6,7 @@ interface MenuDropDownItem {
   Icon: IconType;
 }
 
-export interface PropsMenuNav {
+export interface menuNavDropDown {
   IconNav: IconType;
   nameNav: string;
   description: string;

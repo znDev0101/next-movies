@@ -1,8 +1,8 @@
-import { PropsMenuNav } from "@/types/propsMenuNav";
+import { menuNavDropDown } from "@/types/menuNav";
 import Link from "next/link";
 import React, { useState } from "react";
 
-const MenuNav = ({ data }: { data: PropsMenuNav }) => {
+const MenuNav = ({ data }: { data: menuNavDropDown }) => {
   const { IconNav, IconDown } = data;
   const [isShowDropDown, setIsShowDropDown] = useState<boolean>(false);
 
