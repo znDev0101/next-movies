@@ -2,6 +2,7 @@ import Card from "@/components/ui/Card";
 import ListPagination from "@/components/ui/ListPagination";
 import { IAllList } from "@/types/allList";
 import { Metadata } from "next";
+import { Suspense } from "react";
 
 export const metadata: Metadata = {
   title: "Airing Today Tv Shows - Movie App",
@@ -37,7 +38,9 @@ export default async function AiringToday(props: {
             return <Card data={data} key={i} mediatype="tv" />;
           })}
         </div>
-        <ListPagination />
+        <Suspense fallback={<p>Loading...</p>}>
+          <ListPagination />
+        </Suspense>
       </section>
     </main>
   );

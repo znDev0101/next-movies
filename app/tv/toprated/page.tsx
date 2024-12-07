@@ -2,7 +2,7 @@ import Card from "@/components/ui/Card";
 import ListPagination from "@/components/ui/ListPagination";
 import { IAllList } from "@/types/allList";
 import { Metadata } from "next";
-import React from "react";
+import React, { Suspense } from "react";
 
 export const metadata: Metadata = {
   title: "Top Rated Tv Shows - Movie App",
@@ -36,7 +36,9 @@ export default async function TopRated(props: { searchParams: SearchParams }) {
             return <Card data={data} key={i} mediatype="tv" />;
           })}
         </div>
-        <ListPagination />
+        <Suspense fallback={<p>Loading...</p>}>
+          <ListPagination />
+        </Suspense>
       </section>
     </main>
   );

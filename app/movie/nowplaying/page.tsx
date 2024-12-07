@@ -2,6 +2,7 @@ import Card from "@/components/ui/Card";
 import ListPagination from "@/components/ui/ListPagination";
 import { IAllList } from "@/types/allList";
 import { Metadata } from "next";
+import { Suspense } from "react";
 
 type SearchParams = Promise<{ [key: string]: string | string[] | undefined }>;
 
@@ -35,7 +36,9 @@ export default async function NowPlaying(props: {
             return <Card data={data} key={i} mediatype={"movie"} />;
           })}
         </div>
-        <ListPagination />
+        <Suspense fallback={<p>Loading...</p>}>
+          <ListPagination />
+        </Suspense>
       </section>
     </main>
   );
