@@ -54,28 +54,28 @@ export const dataMenuNavbar = [
     menuDropDown: [
       {
         nameDropDown: "Airing Today",
-        typeLink: "tvshow",
+        typeLink: "tv",
         description:
           "Don't miss out on the latest episodes of your favorite TV shows airing today. Stay up-to-date with the newest content from networks and streaming platforms.",
         Icon: IoPlayOutline,
       },
       {
         nameDropDown: "Top Rated",
-        typeLink: "tvshow",
+        typeLink: "tv",
         description:
           "Explore the pinnacle of television excellence with our collection of top-rated TV shows. These series have been recognized for their outstanding storytelling, acting, and production values.",
         Icon: CiStar,
       },
       {
         nameDropDown: "Popular",
-        typeLink: "tvshow",
+        typeLink: "tv",
         description:
           "Dive into the world of popular TV shows that have captured the hearts of audiences worldwide. From binge-worthy series to critically acclaimed dramas, discover what's trending in the TV universe.",
         Icon: IoMdHeartEmpty,
       },
       {
         nameDropDown: "On The Air",
-        typeLink: "tvshow",
+        typeLink: "tv",
         description:
           "Tune in to the latest buzz with shows currently on the air. From gripping dramas to laugh-out-loud comedies, watch what's captivating audiences right now.",
         Icon: IoPlayOutline,

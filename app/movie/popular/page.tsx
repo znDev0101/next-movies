@@ -20,8 +20,8 @@ export default async function popular(props: { searchParams: SearchParams }) {
 
   return (
     <main>
-      <section className="mx-auto mt-16 w-[95%]">
-        <div className="lg:w-[60%]">
+      <section className="mx-auto mt-24 w-[95%]">
+        <div className="my-16 lg:w-[60%]">
           <h1 className="text-3xl font-semibold">Popular Movies</h1>
           <p className="mt-2 text-lg text-gray-700 dark:text-gray-400">
             Dive into the world of popular movies that have captured the hearts
@@ -30,7 +30,7 @@ export default async function popular(props: { searchParams: SearchParams }) {
             universe.
           </p>
         </div>
-        <div className="mt-10 grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-5">
+        <div className="grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-5">
           {results.map((data: IAllList, i: number) => {
             return <Card data={data} key={i} mediatype="movie" />;
           })}

@@ -1,4 +1,5 @@
 import Card from "@/components/ui/Card";
+import ListPagination from "@/components/ui/ListPagination";
 import { IAllList } from "@/types/allList";
 import { Metadata } from "next";
 
@@ -16,8 +17,8 @@ export default async function UpComing() {
 
   return (
     <main>
-      <section className="mx-auto mt-16 w-[95%]">
-        <div className="w-[60%]">
+      <section className="mx-auto mt-24 w-[95%]">
+        <div className="my-16 lg:w-[60%]">
           <h1 className="text-3xl font-semibold">Upcoming Movies</h1>
           <p className="mt-2 text-lg text-gray-700 dark:text-gray-400">
             Be the first to watch the latest movies before they hit the big
@@ -29,6 +30,7 @@ export default async function UpComing() {
             return <Card data={data} key={i} mediatype="movie" />;
           })}
         </div>
+        <ListPagination />
       </section>
     </main>
   );

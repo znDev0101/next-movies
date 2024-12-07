@@ -1,5 +1,3 @@
-"use client";
-
 import { useEffect, useState } from "react";
 
 export default function useFetch(urlApi: string, querySearch?: string | null) {
