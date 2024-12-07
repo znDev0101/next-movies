@@ -10,7 +10,6 @@ import { Link } from "@nextui-org/react";
 import React from "react";
 
 import { HiMenu } from "react-icons/hi";
-import DropdownItemMobile from "./ui/DropdownItemMobile";
 import { TfiHome } from "react-icons/tfi";
 import { dataMenuNavbar } from "@/data/dataMenuNavbar";
 import MenuNavMobile from "./ui/MenuNavMobile";
