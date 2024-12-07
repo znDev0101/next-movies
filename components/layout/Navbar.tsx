@@ -1,7 +1,6 @@
 "use client";
 
 import React, { Suspense } from "react";
-import MenuBar from "./MenuBar";
 import { RiMovie2Line } from "react-icons/ri";
 import { TfiHome } from "react-icons/tfi";
 import Link from "next/link";
@@ -46,7 +45,6 @@ const Navbar = () => {
           <MobileMenu />
         </div>
       </header>
-      <MenuBar />
     </>
   );
 };
