@@ -1,6 +1,14 @@
 import { menuNavDropDown } from "@/types/menuNav";
 import Link from "next/link";
 import React, { useState } from "react";
+import { IconType } from "react-icons";
+
+interface DropdownProps {
+  nameDropDown: string;
+  description: string;
+  typeLink?: string;
+  Icon: IconType;
+}
 
 const MenuNav = ({ data }: { data: menuNavDropDown }) => {
   const { IconNav, IconDown } = data;
@@ -30,11 +38,11 @@ const MenuNav = ({ data }: { data: menuNavDropDown }) => {
             </div>
             <p className="text-gray-800 dark:text-white">{data.description}</p>
           </div>
-          {data.menuDropDown.map((data, i) => {
+          {data.menuDropDown.map((data: DropdownProps, i) => {
             const { Icon } = data;
             return (
               <Link
-                href={`/movie/${data.nameDropDown.replace(/\s+/g, "").toLocaleLowerCase()}`}
+                href={`/${data.typeLink}/${data.nameDropDown.replace(/\s+/g, "").toLocaleLowerCase()}`}
                 className="flex flex-col gap-y-2 rounded-lg p-2 dark:hover:dark:bg-[#3C3D37]"
                 key={i}
               >

@@ -6,9 +6,14 @@ import {
   ModalHeader,
   useDisclosure,
 } from "@nextui-org/modal";
+import { Link } from "@nextui-org/react";
 import React from "react";
 
 import { HiMenu } from "react-icons/hi";
+import DropdownItemMobile from "./ui/DropdownItemMobile";
+import { TfiHome } from "react-icons/tfi";
+import { dataMenuNavbar } from "@/data/dataMenuNavbar";
+import MenuNavMobile from "./ui/MenuNavMobile";
 
 const MobileMenu = () => {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
@@ -18,31 +23,38 @@ const MobileMenu = () => {
       <Button className="lg:hidden" onClick={onOpen} isIconOnly>
         <HiMenu className="text-xl" />
       </Button>
-      <Modal backdrop="blur" isOpen={isOpen} onOpenChange={onOpenChange}>
+      <Modal
+        backdrop="blur"
+        isOpen={isOpen}
+        onOpenChange={onOpenChange}
+        classNames={{
+          closeButton: "hidden",
+        }}
+      >
         <ModalContent>
           <>
-            <ModalHeader className="flex flex-col gap-1">
-              Modal Title
+            <ModalHeader className="flex flex-col items-center gap-1">
+              Menu
             </ModalHeader>
             <ModalBody>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
-                pulvinar risus non risus hendrerit venenatis. Pellentesque sit
-                amet hendrerit risus, sed porttitor quam.
-              </p>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
-                pulvinar risus non risus hendrerit venenatis. Pellentesque sit
-                amet hendrerit risus, sed porttitor quam.
-              </p>
-              <p>
-                Magna exercitation reprehenderit magna aute tempor cupidatat
-                consequat elit dolor adipisicing. Mollit dolor eiusmod sunt ex
-                incididunt cillum quis. Velit duis sit officia eiusmod Lorem
-                aliqua enim laboris do dolor eiusmod. Et mollit incididunt nisi
-                consectetur esse laborum eiusmod pariatur proident Lorem eiusmod
-                et. Culpa deserunt nostrud ad veniam.
-              </p>
+              <ul>
+                <li>
+                  <Link
+                    href="/"
+                    className="flex items-center gap-x-3 dark:text-white"
+                  >
+                    <div className="flex items-center gap-x-3">
+                      <div className="h-6 w-6">
+                        <TfiHome className="h-full w-full" />
+                      </div>
+                      <span>Home</span>
+                    </div>
+                  </Link>
+                </li>
+                {dataMenuNavbar.map((data, i) => {
+                  return <MenuNavMobile data={data} key={i} />;
+                })}
+              </ul>
             </ModalBody>
           </>
         </ModalContent>
