@@ -15,7 +15,7 @@ const MobileMenu = () => {
 
   return (
     <>
-      <Button className="lg:hidden" onPress={onOpen} isIconOnly>
+      <Button className="lg:hidden" onClick={onOpen} isIconOnly>
         <HiMenu className="text-xl" />
       </Button>
       <Modal backdrop="blur" isOpen={isOpen} onOpenChange={onOpenChange}>
