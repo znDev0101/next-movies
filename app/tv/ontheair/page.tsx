@@ -26,8 +26,8 @@ export default async function OnTheAir(props: { searchParams: SearchParams }) {
           <h1 className="text-3xl font-semibold">On The Air</h1>
           <p className="mt-2 text-lg text-gray-700 dark:text-gray-400">
             Tune in to the latest buzz with shows currently on the air. From
-            gripping dramas to laugh-out-loud comedies, watch what's captivating
-            audiences right now.
+            gripping dramas to laugh-out-loud comedies, watch what&apos;s
+            captivating audiences right now.
           </p>
         </div>
         <div className="grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-5">
