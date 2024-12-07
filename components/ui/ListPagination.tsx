@@ -31,11 +31,8 @@ const ListPagination = () => {
       <Pagination
         classNames={{
           base: "mx-auto flex justify-center my-7",
-          item: "mx-1",
         }}
         showControls
-        boundaries={1}
-        siblings={siblings}
         onChange={handlePageChange}
         total={totalPages}
         initialPage={getPage === null ? 1 : parseInt(getPage)}
