@@ -1,8 +1,10 @@
+import { IAllList } from "@/types/allList";
+
 export default async function useFetchList(
   typeMedia: string,
   type: string,
   page: string,
-): Promise<any> {
+): Promise<IAllList[] | undefined> {
   try {
     const response = await fetch(
       `https://api.themoviedb.org/3/${typeMedia}/${type}?api_key=${process.env.API_KEY}&page=${page}`,

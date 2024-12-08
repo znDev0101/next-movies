@@ -36,7 +36,7 @@ export default async function NowPlaying({
           </p>
         </div>
         <div className="mt-10 grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-5">
-          {results.map((data: IAllList, i: number) => {
+          {results?.map((data: IAllList, i: number) => {
             return <Card data={data} key={i} mediatype={"movie"} />;
           })}
         </div>

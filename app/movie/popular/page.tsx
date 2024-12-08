@@ -33,7 +33,7 @@ export default async function popular(props: { searchParams: SearchParams }) {
           </p>
         </div>
         <div className="grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-5">
-          {results.map((data: IAllList, i: number) => {
+          {results?.map((data: IAllList, i: number) => {
             return <Card data={data} key={i} mediatype="movie" />;
           })}
           {}
