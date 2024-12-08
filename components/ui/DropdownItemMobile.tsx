@@ -1,4 +1,4 @@
-import { Link } from "@nextui-org/react";
+import Link from "next/link";
 import React from "react";
 import { IconType } from "react-icons";
 

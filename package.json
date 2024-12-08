@@ -11,7 +11,6 @@
   "dependencies": {
     "@nextui-org/button": "^2.0.38",
     "@nextui-org/input": "^2.2.5",
-    "@nextui-org/link": "^2.2.3",
     "@nextui-org/modal": "^2.0.41",
     "@nextui-org/pagination": "^2.0.36",
     "@nextui-org/react": "^2.4.8",

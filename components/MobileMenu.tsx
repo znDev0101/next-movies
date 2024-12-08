@@ -6,13 +6,13 @@ import {
   ModalHeader,
   useDisclosure,
 } from "@nextui-org/modal";
-import { Link } from "@nextui-org/react";
 import React from "react";
 
 import { HiMenu } from "react-icons/hi";
 import { TfiHome } from "react-icons/tfi";
 import { dataMenuNavbar } from "@/data/dataMenuNavbar";
 import MenuNavMobile from "./ui/MenuNavMobile";
+import Link from "next/link";
 
 const MobileMenu = () => {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
