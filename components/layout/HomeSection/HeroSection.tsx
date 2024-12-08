@@ -8,15 +8,15 @@ const HeroSection = async ({
   data,
   id,
 }: {
-  data: IDetailMovie;
-  id: string;
+  data?: IDetailMovie;
+  id?: string;
 }) => {
   if (id !== undefined) {
     return (
       <section className="mx-auto hidden w-[98%] lg:block">
         <div className="relative mt-16 overflow-hidden rounded-xl lg:h-[90vh]">
           <Image
-            src={`${process.env.NEXT_PUBLIC_IMG_PATH}/original${data.backdrop_path}`}
+            src={`${process.env.NEXT_PUBLIC_IMG_PATH}/original${data?.backdrop_path}`}
             alt="image backdrop"
             fill
             style={{
