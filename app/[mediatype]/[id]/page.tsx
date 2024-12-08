@@ -1,4 +1,5 @@
-import HeroImage from "@/components/layout/detail/HeroImage";
+import DescriptionMovie from "@/components/layout/detail/DescriptionMovie";
+import HeroSection from "@/components/layout/HomeSection/HeroSection";
 import { Metadata } from "next";
 
 type Props = {
@@ -40,7 +41,8 @@ export default async function Detail({
 
   return (
     <main>
-      <HeroImage data={results} />
+      <HeroSection data={results} id={id} />
+      <DescriptionMovie data={results} />
     </main>
   );
 }

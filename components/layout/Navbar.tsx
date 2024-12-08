@@ -25,7 +25,7 @@ const Navbar = () => {
           </Link>
           <ul className="hidden items-center gap-x-7 font-semibold lg:flex">
             <li
-              className={`${pathname === "/" ? "bg-gray-100 dark:bg-[#3C3D37]" : "hover:bg-gray-100"} rounded-md px-4 py-2 hover:cursor-pointer`}
+              className={`${pathname === "/" ? "bg-gray-100 dark:bg-[#3C3D37]" : "hover:bg-gray-100 dark:hover:bg-[#3C3D37]"} rounded-md px-4 py-2 hover:cursor-pointer`}
             >
               <Link href={"/"} className="flex items-end gap-x-3">
                 <TfiHome className="text-2xl font-bold" />
