@@ -1,6 +1,7 @@
 import { IAllList } from "@/types/allList";
 import { Button } from "@nextui-org/button";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 import { FaArrowRightLong } from "react-icons/fa6";
 
@@ -29,12 +30,14 @@ const ItemHero = ({ data }: { data: IAllList }) => {
         <p className="line-clamp-4 text-gray-700 dark:text-gray-300">
           {data.overview}
         </p>
-        <Button
-          className="bg mx-auto w-max bg-gray-900 font-semibold text-white dark:bg-white dark:text-black"
-          endContent={<FaArrowRightLong />}
+
+        <Link
+          href={`${data.media_type}/${data.id}`}
+          className="mx-auto flex w-max items-center gap-x-3 rounded-lg p-2 font-semibold dark:bg-white dark:text-black"
         >
           Details
-        </Button>
+          <FaArrowRightLong />
+        </Link>
       </div>
       <div className="absolute bottom-0 left-0 right-0 top-0 bg-gradient-to-t from-white opacity-95 dark:from-[#181C14]"></div>
     </div>

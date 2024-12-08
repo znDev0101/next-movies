@@ -1,11 +1,12 @@
 import { Button } from "@nextui-org/button";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 import { FaArrowRightLong } from "react-icons/fa6";
 
 const HeroSection = async () => {
   const response = await fetch(
-    "https://api.themoviedb.org/3/trending/all/day?api_key=220d62371abf4992685b9078d86d3b79",
+    `https://api.themoviedb.org/3/trending/all/day?api_key=${process.env.API_KEY}`,
   );
 
   const results = await response.json();
@@ -38,12 +39,13 @@ const HeroSection = async () => {
         <p className="line-clamp-4 text-gray-700 dark:text-gray-300">
           {results.results[randomIndex]?.overview}
         </p>
-        <Button
-          className="mx-auto w-max rounded-lg bg-gray-900 font-semibold text-white dark:bg-white dark:text-black"
-          endContent={<FaArrowRightLong />}
+        <Link
+          href={`${results.results[randomIndex].media_type}/${results.results[randomIndex].id}`}
+          className="mx-auto flex w-max items-center gap-x-3 rounded-lg p-2 font-semibold dark:bg-white dark:text-black"
         >
           Details
-        </Button>
+          <FaArrowRightLong />
+        </Link>
       </div>
       <div className="absolute bottom-0 left-0 right-0 top-0 bg-gradient-to-t from-white opacity-95 dark:from-[#181C14]"></div>
     </section>
