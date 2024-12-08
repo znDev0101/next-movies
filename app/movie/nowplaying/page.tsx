@@ -1,6 +1,6 @@
 import Card from "@/components/ui/Card";
 import ListPagination from "@/components/ui/ListPagination";
-import useFetchList from "@/hooks/useFetchList";
+
 import { IAllList } from "@/types/allList";
 import { Metadata } from "next";
 import { Suspense } from "react";
@@ -19,11 +19,11 @@ export default async function NowPlaying({
 }) {
   const { page } = await searchParams;
 
-  const results = await useFetchList(
-    `movie`,
-    `now_playing`,
-    `${process.env.API_KEY}&page=${page === undefined ? 1 : page}`,
+  const response = await fetch(
+    `https://api.themoviedb.org/3/movie/now_playing?api_key=${process.env.API_KEY}&page=${page === undefined ? 1 : page}`,
   );
+
+  const { results } = await response.json();
 
   return (
     <main>
