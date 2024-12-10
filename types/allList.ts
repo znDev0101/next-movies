@@ -10,6 +10,7 @@ export interface IAllList {
   adult: boolean;
   original_language: string;
   genre_ids: number[];
+  genres?: any[];
   popularity: number;
   release_date?: string;
   first_air_date?: string;

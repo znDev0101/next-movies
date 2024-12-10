@@ -1,4 +1,4 @@
-import { IDetailMovie } from "@/types/detailMovie";
+import { IMediaDetail } from "@/types/mediaDetail";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -8,12 +8,12 @@ const HeroSection = async ({
   data,
   id,
 }: {
-  data?: IDetailMovie;
+  data?: IMediaDetail;
   id?: string;
 }) => {
   if (id !== undefined) {
     return (
-      <section className="mx-auto hidden w-[98%] lg:block">
+      <section className="mx-auto hidden w-[97%] lg:block">
         <div className="relative mt-16 overflow-hidden rounded-xl lg:h-[90vh]">
           <Image
             src={`${process.env.NEXT_PUBLIC_IMG_PATH}/original${data?.backdrop_path}`}
