@@ -1,7 +1,22 @@
 import Image from "next/image";
 import React from "react";
 
-const CardCredits = ({ data }: { data: any }) => {
+interface ICardCreditsProps {
+  adult: boolean;
+  cast_id: number;
+  character: string;
+  credit_id: string;
+  gender: number;
+  id: number;
+  known_for_department: string;
+  name: string;
+  order: number;
+  original_name: string;
+  popularity: number;
+  profile_path: string;
+}
+
+const CardCredits = ({ data }: { data: ICardCreditsProps }) => {
   return (
     data.profile_path !== null && (
       <div className="relative w-full overflow-hidden rounded-lg border border-gray-300">
