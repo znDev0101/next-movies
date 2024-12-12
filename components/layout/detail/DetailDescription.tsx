@@ -19,7 +19,7 @@ const DetailDescription = ({ data }: { data: IMediaDetail }) => {
         </div>
         <div className="my-5 w-full">
           <div className="flex gap-x-4">
-            <span className="rounded-full bg-black px-3 font-semibold text-white dark:bg-white dark:text-black">
+            <span className="rounded-full bg-black px-3 text-xs font-semibold text-white dark:bg-white dark:text-black lg:text-medium">
               {data.vote_average}
             </span>
 
@@ -29,7 +29,7 @@ const DetailDescription = ({ data }: { data: IMediaDetail }) => {
                   <Link
                     href={`${data.name}`}
                     key={i}
-                    className="rounded-full bg-gray-200 px-2 font-semibold dark:bg-gray-800 dark:text-white"
+                    className="rounded-full bg-gray-200 px-2 text-xs font-semibold dark:bg-gray-800 dark:text-white lg:text-medium"
                   >
                     {data.name}
                   </Link>

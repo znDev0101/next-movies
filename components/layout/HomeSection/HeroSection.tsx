@@ -53,7 +53,7 @@ const HeroSection = async ({
         </div>
         <div className="absolute bottom-7 left-1/2 z-40 flex w-full max-w-4xl -translate-x-1/2 transform flex-col gap-y-3 px-5 text-center lg:gap-y-5">
           <div className="mx-auto w-max rounded-full bg-gray-900 px-3 py-1 dark:bg-white">
-            <span className="font-bold text-white dark:text-black">
+            <span className="text-xs font-bold text-white dark:text-black lg:text-medium">
               Treding Now
             </span>
           </div>
@@ -66,7 +66,7 @@ const HeroSection = async ({
           </p>
           <Link
             href={`${results.results[randomIndex].media_type}/${results.results[randomIndex].id}`}
-            className="mx-auto flex w-max items-center gap-x-3 rounded-lg bg-black p-2 font-semibold text-white dark:bg-white dark:text-black"
+            className="mx-auto flex w-max items-center gap-x-3 rounded-lg bg-black px-7 py-2 font-semibold text-white dark:bg-white dark:text-black"
           >
             Details
             <FaArrowRightLong />

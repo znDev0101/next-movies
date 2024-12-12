@@ -4,6 +4,7 @@ interface MenuDropDownItem {
   nameDropDown: string;
   description: string;
   Icon: IconType;
+  typeLink?: string;
 }
 
 export interface menuNavDropDown {
