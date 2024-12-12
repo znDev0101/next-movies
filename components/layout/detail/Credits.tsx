@@ -1,30 +1,21 @@
 import CardCredits from "@/components/ui/CardCredits";
-import React, { useEffect, useState } from "react";
+import { ICreditsProps } from "@/types/credits";
+import React from "react";
 
-const Credits = ({ mediatype, id }: { mediatype: string; id: string }) => {
-  const [data, setData] = useState([]);
-
-  const getDataCredits = async () => {
-    try {
-      const response = await fetch(
-        `https://api.themoviedb.org/3/${mediatype}/${id}/credits?api_key=${process.env.API_KEY}`,
-      );
-      const { cast } = await response.json();
-      setData(cast);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  useEffect(() => {
-    getDataCredits();
-  }, []);
+const Credits = ({ data }: { data: ICreditsProps[] }) => {
+  console.log(data);
 
   return (
     <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
-      {data.map((data, i) => {
-        return <CardCredits data={data} key={i} />;
-      })}
+      {data.length !== 0 ? (
+        <>
+          {data.map((data, i) => {
+            return <CardCredits data={data} key={i} />;
+          })}
+        </>
+      ) : (
+        <h1 className="my-5 text-center text-2xl font-semibold">No Cast</h1>
+      )}
     </div>
   );
 };

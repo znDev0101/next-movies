@@ -13,15 +13,17 @@ const HeroSection = async ({
 }) => {
   if (id !== undefined) {
     return (
-      <section className="mx-auto hidden w-[97%] lg:block">
+      <section className="mx-auto mt-10 hidden w-[96%] lg:block">
         <div className="relative mt-16 overflow-hidden rounded-xl lg:h-[90vh]">
           <Image
             src={`${process.env.NEXT_PUBLIC_IMG_PATH}/original${data?.backdrop_path}`}
             alt="image backdrop"
             fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 100vw"
             style={{
               objectFit: "cover",
             }}
+            priority
           />
         </div>
       </section>
@@ -39,9 +41,10 @@ const HeroSection = async ({
       <section className="relative z-40 mt-20 h-[75vh] overflow-hidden rounded-lg lg:mt-16 lg:h-[90vh]">
         <div className="relative h-full">
           <Image
-            alt="Mountains"
+            alt="image backdrop"
             src={imageBackDrop}
             fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 100vw"
             style={{
               objectFit: "cover",
             }}
@@ -63,7 +66,7 @@ const HeroSection = async ({
           </p>
           <Link
             href={`${results.results[randomIndex].media_type}/${results.results[randomIndex].id}`}
-            className="mx-auto flex w-max items-center gap-x-3 rounded-lg p-2 font-semibold dark:bg-white dark:text-black"
+            className="mx-auto flex w-max items-center gap-x-3 rounded-lg bg-black p-2 font-semibold text-white dark:bg-white dark:text-black"
           >
             Details
             <FaArrowRightLong />

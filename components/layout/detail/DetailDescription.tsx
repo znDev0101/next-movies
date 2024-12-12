@@ -7,13 +7,14 @@ import React from "react";
 
 const DetailDescription = ({ data }: { data: IMediaDetail }) => {
   return (
-    <section className="mx-auto my-14 w-[95%] lg:mt-20 lg:w-[85%]">
+    <section className="mx-auto mt-20 w-[95%] lg:mt-20 lg:w-[85%]">
       <div className="flex w-full flex-col items-center gap-x-3 lg:grid lg:grid-cols-[max-content_1fr] lg:gap-x-20">
-        <div className="relative h-[80vh] w-full flex-shrink-0 overflow-hidden rounded-xl lg:h-[30rem] lg:w-80">
+        <div className="relative mb-5 h-[70vh] w-full flex-shrink-0 overflow-hidden rounded-xl lg:h-[30rem] lg:w-80">
           <Image
             src={`${process.env.NEXT_PUBLIC_IMG_PATH}/original/${data.poster_path}`}
             alt="poster image"
             fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
         </div>
         <div className="my-5 w-full">
@@ -28,7 +29,7 @@ const DetailDescription = ({ data }: { data: IMediaDetail }) => {
                   <Link
                     href={`${data.name}`}
                     key={i}
-                    className="rounded-full bg-gray-200 px-2 font-semibold"
+                    className="rounded-full bg-gray-200 px-2 font-semibold dark:bg-gray-800 dark:text-white"
                   >
                     {data.name}
                   </Link>
@@ -41,12 +42,16 @@ const DetailDescription = ({ data }: { data: IMediaDetail }) => {
           </h1>
           {data.tagline.length !== 0 && (
             <div className="my-6">
-              <q className="text-xl text-gray-600">{data.tagline}</q>
+              <q className="text-xl text-gray-600 dark:text-gray-400">
+                {data.tagline}
+              </q>
             </div>
           )}
 
-          <p className="text-xl text-gray-600">{data.overview}</p>
-          <Button className="mt-7 bg-black font-semibold text-white">
+          <p className="text-xl text-gray-600 dark:text-gray-400">
+            {data.overview}
+          </p>
+          <Button className="mt-7 bg-black font-bold text-white dark:bg-white dark:text-black">
             <IoPlayOutline className="text-2xl" /> Watch Trailer
           </Button>
         </div>

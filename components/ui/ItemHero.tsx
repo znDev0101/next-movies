@@ -32,7 +32,7 @@ const ItemHero = ({ data }: { data: IAllList }) => {
 
         <Link
           href={`${data.media_type}/${data.id}`}
-          className="mx-auto flex w-max items-center gap-x-3 rounded-lg p-2 font-semibold dark:bg-white dark:text-black"
+          className="mx-auto flex w-max items-center gap-x-3 rounded-lg bg-black p-2 font-semibold text-white dark:bg-white dark:text-black"
         >
           Details
           <FaArrowRightLong />
