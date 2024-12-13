@@ -5,10 +5,10 @@ import { Suspense } from "react";
 export default function PageSearch() {
   return (
     <main>
-      <Suspense fallback={<p>Loading...</p>}>
+      <Suspense>
         <CardSearch />
+        <ListPagination />
       </Suspense>
-      <ListPagination />
     </main>
   );
 }
