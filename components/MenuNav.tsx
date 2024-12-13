@@ -39,7 +39,7 @@ const MenuNav = ({ data }: { data: menuNavDropDown }) => {
                     ? `/${data.nameDropDown.replace(/\s+/g, "").toLocaleLowerCase()}`
                     : `/${data.typeLink}/${data.nameDropDown.replace(/\s+/g, "").toLocaleLowerCase()}`
                 }
-                className="flex flex-col gap-y-2 rounded-lg p-2 dark:hover:dark:bg-[#3C3D37]"
+                className="flex flex-col gap-y-2 rounded-lg p-2 hover:bg-gray-100 dark:hover:dark:bg-[#3C3D37]"
                 key={i}
               >
                 <div className="flex items-center gap-x-3">
