@@ -1,6 +1,8 @@
+import CardSkeleton from "@/components/skeleton/CardSkeleton";
 import Card from "@/components/ui/Card";
 import { ITrendingMovie } from "@/types/trendingMovie";
 import { Button } from "@nextui-org/button";
+import { Suspense } from "react";
 
 export default async function TrendingMovies() {
   const response = await fetch(
@@ -18,9 +20,11 @@ export default async function TrendingMovies() {
         </Button>
       </div>
       <div className="my-5 flex snap-x snap-mandatory space-x-4 overflow-x-scroll scroll-smooth scrollbar-hide">
-        {results.map((data: ITrendingMovie, i: number) => {
-          return <Card data={data} key={i} />;
-        })}
+        <Suspense fallback={<CardSkeleton length={5} />}>
+          {results.map((data: ITrendingMovie, i: number) => {
+            return <Card data={data} key={i} />;
+          })}
+        </Suspense>
       </div>
     </section>
   );

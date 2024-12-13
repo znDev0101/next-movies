@@ -4,11 +4,15 @@ import HeroSection from "@/components/layout/HomeSection/HeroSection";
 import HeroTv from "@/components/layout/HomeSection/HeroTv";
 import TrendingMovies from "@/components/layout/HomeSection/TrendingMovies";
 import TrendingTv from "@/components/layout/HomeSection/TrendingTv";
+import HeroSkeleton from "@/components/skeleton/HeroSkeleton";
+import { Suspense } from "react";
 
 export default function Home() {
   return (
     <main className="mx-auto w-[95%] lg:w-[98%]">
-      <HeroSection />
+      <Suspense fallback={<HeroSkeleton />}>
+        <HeroSection />
+      </Suspense>
       <AllTrending />
       <TrendingMovies />
       <HeroMovies />

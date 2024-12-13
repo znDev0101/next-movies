@@ -23,7 +23,7 @@ const DetailDescription = ({ data }: { data: IMediaDetail }) => {
               {data.vote_average}
             </span>
 
-            <div className="flex gap-x-3">
+            <div className="flex gap-x-2">
               {data.genres.map((data, i) => {
                 return (
                   <Link

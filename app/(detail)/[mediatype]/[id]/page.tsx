@@ -1,7 +1,9 @@
 import DetailDescription from "@/components/layout/detail/DetailDescription";
 import HeroSection from "@/components/layout/HomeSection/HeroSection";
+import HeroSkeleton from "@/components/skeleton/HeroSkeleton";
 import TabsDetails from "@/components/ui/TabsDetails";
 import { Metadata } from "next";
+import { Suspense } from "react";
 
 type Props = {
   params: Promise<{ mediatype: string; id: string }>;
@@ -87,7 +89,9 @@ export default async function Detail({
 
   return (
     <main>
-      <HeroSection id={id} data={detail} />
+      <Suspense fallback={<HeroSkeleton />}>
+        <HeroSection id={id} data={detail} />
+      </Suspense>
       <DetailDescription data={detail} />
       <TabsDetails credits={cast} watch={results.US} />
     </main>
