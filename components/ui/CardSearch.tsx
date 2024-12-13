@@ -5,15 +5,17 @@ import { useSearchParams } from "next/navigation";
 import React from "react";
 import Card from "./Card";
 import { IAllList } from "@/types/allList";
+import CardSkeleton from "../skeleton/CardSkeleton";
 
 const CardSearch = () => {
   const searchParams = useSearchParams();
   const query = searchParams.get("query");
 
-  const data = useFetch(
+  const { data, isLoading } = useFetch(
     "https://api.themoviedb.org/3/search/multi?query=",
     query,
   );
+
   return (
     <main>
       <div className="mt-20 flex flex-col items-center justify-center">
@@ -24,9 +26,13 @@ const CardSearch = () => {
       </div>
       <section className="m-5">
         <div className="mt-10 grid grid-cols-2 gap-x-4 gap-y-3 sm:grid-cols-3 lg:grid-cols-5">
-          {data?.map((data: IAllList, i: number) => {
-            return <Card data={data} searchQuery={query} key={i} />;
-          })}
+          {isLoading ? (
+            <CardSkeleton length={20} searchQuery={query} />
+          ) : (
+            data?.map((data: IAllList, i: number) => {
+              return <Card data={data} searchQuery={query} key={i} />;
+            })
+          )}
         </div>
       </section>
     </main>

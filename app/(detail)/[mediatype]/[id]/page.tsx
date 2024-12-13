@@ -33,7 +33,6 @@ async function getDetail(mediatype: string, id: string) {
       console.log("Promise resolved and HTTP status is successful");
       return response.json();
     } else {
-      // Custom message for failed HTTP codes
       if (response.status === 404) throw new Error("404, Not found");
       if (response.status === 500)
         throw new Error("500, internal server error");
