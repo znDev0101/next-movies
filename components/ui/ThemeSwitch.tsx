@@ -85,7 +85,7 @@ const ThemeSwitch = () => {
           return (
             <DropdownItem
               key={data.theme}
-              onClick={() => setTheme(data.theme)}
+              onPress={() => setTheme(data.theme)}
               endContent={<Icon />}
             >
               {data.titleTheme}

@@ -78,18 +78,18 @@ const Watch = ({ data }: { data: IWatchProps }) => {
       <p className="text-gray-500">
         Stream, buy or rent this movie from the providers below.
       </p>
-      <div className="my-16 flex gap-x-96">
-        <div className="flex flex-col">
+      <div className="my-16 flex flex-col gap-x-96 gap-y-7 lg:flex-row">
+        <div className="flex w-full flex-col">
           <h1 className="font-semibold">Stream</h1>
-          <p className="mt-5">Not available</p>
+          <p className="mt-2">Not available</p>
         </div>
-        <div className="flex flex-col">
+        <div className="flex w-full flex-col">
           <h1 className="font-semibold">Buy</h1>
-          <p className="mt-5">Not available</p>
+          <p className="mt-2">Not available</p>
         </div>
-        <div className="flex flex-col">
+        <div className="flex w-full flex-col">
           <h1 className="font-semibold">Rent</h1>
-          <p className="mt-5">Not available</p>
+          <p className="mt-2">Not available</p>
         </div>
       </div>
     </div>
