@@ -10,6 +10,7 @@ const nextConfig: NextConfig = {
         pathname: "**",
       },
     ],
+    unoptimized: false,
   },
   env: {
     API_KEY: process.env.API_KEY,
