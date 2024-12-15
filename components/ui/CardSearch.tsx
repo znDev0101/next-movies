@@ -10,10 +10,12 @@ import CardSkeleton from "../skeleton/CardSkeleton";
 const CardSearch = () => {
   const searchParams = useSearchParams();
   const query = searchParams.get("query");
+  const page = searchParams.get("page");
 
   const { data, isLoading } = useFetch(
     "https://api.themoviedb.org/3/search/multi?query=",
     query,
+    page,
   );
 
   return (

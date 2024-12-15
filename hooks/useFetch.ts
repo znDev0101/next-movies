@@ -1,6 +1,10 @@
 import { useEffect, useState } from "react";
 
-export default function useFetch(urlApi: string, querySearch?: string | null) {
+export default function useFetch(
+  urlApi: string,
+  querySearch?: string | null,
+  page?: string | null,
+) {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [data, setData] = useState<any[]>();
 
@@ -8,7 +12,7 @@ export default function useFetch(urlApi: string, querySearch?: string | null) {
     try {
       setIsLoading(true);
       const response = await fetch(
-        `${urlApi}${querySearch}&api_key=${process.env.API_KEY}`,
+        `${urlApi}${querySearch}&api_key=${process.env.API_KEY}&page=${page !== null ? page : 1}`,
       );
 
       if (response.ok) {
@@ -27,9 +31,8 @@ export default function useFetch(urlApi: string, querySearch?: string | null) {
   };
 
   useEffect(() => {
-    // getData from query search
     if (querySearch?.length !== 0) getData();
-  }, [querySearch]);
+  }, [querySearch, page]);
 
   return { data, isLoading };
 }

@@ -8,6 +8,7 @@ import React from "react";
 const ListPagination = () => {
   const searchParams = useSearchParams();
   const getPage = searchParams.get("page");
+  const query = searchParams.get("query");
 
   const pathname = usePathname();
 
@@ -15,8 +16,13 @@ const ListPagination = () => {
   const router = useRouter();
 
   const handlePageChange = (page: number) => {
-    router.push(`${pathname}?page=${page}`);
+    if (query !== null) {
+      router.push(`${pathname}?query=${query}&page=${page}`);
+    } else {
+      router.push(`${pathname}?page=${page}`);
+    }
   };
+
   return (
     <div>
       <Pagination

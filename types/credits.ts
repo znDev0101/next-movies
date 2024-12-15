@@ -1,4 +1,10 @@
-export interface ICreditsProps {
+export interface ICredits {
+  id: number;
+  cast: any[];
+  crew: any[];
+}
+
+export interface ICreditProps {
   adult: boolean;
   cast_id: number;
   character: string;

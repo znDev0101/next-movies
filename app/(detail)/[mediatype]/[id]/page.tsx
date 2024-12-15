@@ -2,6 +2,11 @@ import DetailDescription from "@/components/layout/detail/DetailDescription";
 import HeroSection from "@/components/layout/HomeSection/HeroSection";
 import HeroSkeleton from "@/components/skeleton/HeroSkeleton";
 import TabsDetails from "@/components/ui/TabsDetails";
+import { ICredits } from "@/types/credits";
+import { IMediaDetail } from "@/types/mediaDetail";
+import { IReviews } from "@/types/reviews";
+import { IWatch } from "@/types/watch";
+import { fetchFromAPI } from "@/utils/fetchApi";
 import { Metadata } from "next";
 import { Suspense } from "react";
 
@@ -23,67 +28,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-async function getDetail(mediatype: string, id: string) {
-  try {
-    const response = await fetch(
-      `https://api.themoviedb.org/3/${mediatype}/${id}?api_key=${process.env.API_KEY}`,
-    );
-
-    if (response.ok) {
-      console.log("Promise resolved and HTTP status is successful");
-      return response.json();
-    } else {
-      if (response.status === 404) throw new Error("404, Not found");
-      if (response.status === 500)
-        throw new Error("500, internal server error");
-    }
-  } catch (error) {
-    console.error("Fetch", error);
-  }
-}
-
-async function getCredits(mediatype: string, id: string) {
-  try {
-    const response = await fetch(
-      `https://api.themoviedb.org/3/${mediatype}/${id}/credits?api_key=${process.env.API_KEY}`,
-    );
-    if (response.ok) {
-      console.log("Promise resolved and HTTP status is successful");
-      return response.json();
-    }
-  } catch (error) {
-    console.error("Fetch", error);
-  }
-}
-
-async function getWatch(mediatype: string, id: string) {
-  try {
-    const response = await fetch(
-      `https://api.themoviedb.org/3/${mediatype}/${id}/watch/providers?api_key=${process.env.API_KEY}`,
-    );
-    if (response.ok) {
-      console.log("Promise resolved and HTTP status is successful");
-      return response.json();
-    }
-  } catch (error) {
-    console.error("Fetch", error);
-  }
-}
-
 export default async function Detail({
   params,
 }: {
   params: Promise<{ id: string; mediatype: string }>;
 }) {
   const { mediatype, id } = await params;
-  const detailData = await getDetail(mediatype, id);
-  const creditsData = await getCredits(mediatype, id);
-  const watchData = await getWatch(mediatype, id);
 
-  const [detail, { cast }, { results }] = await Promise.all([
-    detailData,
-    creditsData,
-    watchData,
+  const [detail, credits, watch, reviews] = await Promise.all([
+    fetchFromAPI<IMediaDetail>(`${mediatype}/${id}`),
+    fetchFromAPI<ICredits>(`${mediatype}/${id}/credits`),
+    fetchFromAPI<IWatch>(`${mediatype}/${id}/watch/providers`),
+    fetchFromAPI<IReviews>(`${mediatype}/${id}/reviews`),
   ]);
 
   return (
@@ -91,8 +47,12 @@ export default async function Detail({
       <Suspense fallback={<HeroSkeleton />}>
         <HeroSection id={id} data={detail} />
       </Suspense>
-      <DetailDescription data={detail} />
-      <TabsDetails credits={cast} watch={results.US} />
+      <DetailDescription data={detail as IMediaDetail} />
+      <TabsDetails
+        credits={credits?.cast}
+        watch={watch?.results.US}
+        reviews={reviews?.results}
+      />
     </main>
   );
 }

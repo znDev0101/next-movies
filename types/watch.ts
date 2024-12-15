@@ -4,3 +4,8 @@ export interface IWatchProps {
   link: string;
   rent: any[];
 }
+
+export interface IWatch {
+  id: number;
+  results: Record<string, any>;
+}

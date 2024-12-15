@@ -4,14 +4,18 @@ import { Tab, Tabs } from "@nextui-org/tabs";
 import React from "react";
 import Credits from "../layout/detail/Credits";
 import Watch from "../layout/detail/Watch";
-import { ICreditsProps } from "@/types/credits";
+import { ICreditProps } from "@/types/credits";
 import { IWatchProps } from "@/types/watch";
+import { IReviewsProps } from "@/types/reviews";
+import Reviews from "../layout/detail/Reviews";
 
 const TabsDetails = ({
   credits,
   watch,
+  reviews,
 }: {
-  credits: ICreditsProps[];
+  reviews: IReviewsProps[] | undefined;
+  credits: ICreditProps[] | undefined;
   watch: IWatchProps;
 }) => {
   return (
@@ -23,6 +27,9 @@ const TabsDetails = ({
           </Tab>
           <Tab key="watch" title="Watch">
             <Watch data={watch} />
+          </Tab>
+          <Tab key="reviews" title="Reviews">
+            <Reviews data={reviews} />
           </Tab>
         </Tabs>
       </div>

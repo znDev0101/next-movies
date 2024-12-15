@@ -1,13 +1,13 @@
 import CardCredits from "@/components/ui/CardCredits";
-import { ICreditsProps } from "@/types/credits";
+import { ICreditProps } from "@/types/credits";
 import React from "react";
 
-const Credits = ({ data }: { data: ICreditsProps[] }) => {
+const Credits = ({ data }: { data: ICreditProps[] | undefined }) => {
   return (
     <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
-      {data.length !== 0 ? (
+      {data?.length !== 0 ? (
         <>
-          {data.map((data, i) => {
+          {data?.map((data, i) => {
             return <CardCredits data={data} key={i} />;
           })}
         </>

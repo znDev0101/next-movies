@@ -15,22 +15,18 @@ export default function useSearch(auto: boolean = true) {
   function handleSearch(value: string): void {
     if (value !== "") {
       router.push(`/search?query=${value}`);
-
-      return;
     }
 
     if (!page && pathname === "/search") {
       router.replace("/", {
         scroll: true,
       });
-      return;
     }
 
     if (page && pathname !== page) {
       router.replace(page, {
         scroll: true,
       });
-      return;
     }
   }
 
