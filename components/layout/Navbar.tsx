@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { Suspense } from "react";
 import { RiMovie2Line } from "react-icons/ri";
 import { TfiHome } from "react-icons/tfi";
 import Link from "next/link";
@@ -38,7 +38,9 @@ const Navbar = () => {
           </ul>
         </nav>
         <div className="flex w-full items-center justify-end gap-x-2 lg:w-[27rem]">
-          <SearchBarNav />
+          <Suspense>
+            <SearchBarNav />
+          </Suspense>
           <ThemeSwitch />
           <MobileMenu />
         </div>
