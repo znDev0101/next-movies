@@ -13,7 +13,7 @@ const CardSearch = () => {
   const page = searchParams.get("page");
 
   const { data, isLoading } = useFetch(
-    "https://api.themoviedb.org/3/search/multi?query=",
+    `https://api.themoviedb.org/3/search/multi?query=${query}&api_key=${process.env.API_KEY}&page=${page !== null ? page : `1`}`,
     query,
     page,
   );

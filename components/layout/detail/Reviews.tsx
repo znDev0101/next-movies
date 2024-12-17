@@ -49,7 +49,7 @@ const Reviews = ({ data }: { data: IReviewsProps[] | undefined }) => {
                   <span className="text-xs lg:text-medium">
                     {formattedDate}
                   </span>
-                  <span className="w-max rounded-xl px-2 font-semibold dark:bg-white dark:text-black lg:px-3">
+                  <span className="w-max rounded-xl bg-black px-2 font-semibold text-white dark:bg-white dark:text-black lg:px-3">
                     {data.author_details.rating}.0
                   </span>
                 </div>

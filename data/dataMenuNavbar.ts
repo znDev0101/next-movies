@@ -5,7 +5,7 @@ import { IoPlayOutline } from "react-icons/io5";
 import { HiTrendingUp } from "react-icons/hi";
 import { CiStar } from "react-icons/ci";
 import { IoMdHeartEmpty } from "react-icons/io";
-import { MdOutlineCalendarMonth } from "react-icons/md";
+import { MdOutlineBorderAll, MdOutlineCalendarMonth } from "react-icons/md";
 
 export const dataMenuNavbar = [
   {
@@ -90,13 +90,21 @@ export const dataMenuNavbar = [
     IconDown: FaChevronDown,
     menuDropDown: [
       {
+        nameDropDown: "Trending Now",
+        typeLink: "trending",
+        description: " Catch the all Trending now",
+        Icon: MdOutlineBorderAll,
+      },
+      {
         nameDropDown: "Movies",
+        typeLink: "trending",
         description:
           "Stay on the pulse of what's hot in the movie scene. See what films are making waves and capturing audiences around the globe.",
         Icon: BiCameraMovie,
       },
       {
         nameDropDown: "Tv Shows",
+        typeLink: "trending",
         description:
           "Catch up with the world and see what TV shows are currently trending. From viral sensations to critically acclaimed series, find out what's capturing viewers' attention.",
         Icon: TbDeviceTv,

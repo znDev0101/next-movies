@@ -38,9 +38,7 @@ const Navbar = () => {
           </ul>
         </nav>
         <div className="flex w-full items-center justify-end gap-x-2 lg:w-[27rem]">
-          <Suspense fallback={<p>Loading...</p>}>
-            <SearchBarNav />
-          </Suspense>
+          <SearchBarNav />
           <ThemeSwitch />
           <MobileMenu />
         </div>

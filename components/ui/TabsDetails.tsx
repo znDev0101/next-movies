@@ -31,6 +31,15 @@ const TabsDetails = ({
           <Tab key="reviews" title="Reviews">
             <Reviews data={reviews} />
           </Tab>
+          <Tab key="images" title="Images">
+            <Reviews data={reviews} />
+          </Tab>
+          <Tab key="recommendations" title="Recommendations">
+            <Reviews data={reviews} />
+          </Tab>
+          <Tab key="similiar" title="Similiar">
+            <Reviews data={reviews} />
+          </Tab>
         </Tabs>
       </div>
     </section>

@@ -11,9 +11,7 @@ export default function useFetch(
   const getData = async () => {
     try {
       setIsLoading(true);
-      const response = await fetch(
-        `${urlApi}${querySearch}&api_key=${process.env.API_KEY}&page=${page !== null ? page : 1}`,
-      );
+      const response = await fetch(`${urlApi}`);
 
       if (response.ok) {
         console.log("Promise resolved and HTTP status is successful");

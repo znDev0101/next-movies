@@ -1,6 +1,5 @@
+import ModalUI from "@/components/ui/Modal";
 import { IMediaDetail } from "@/types/mediaDetail";
-import { Button } from "@nextui-org/button";
-import { IoPlayOutline } from "react-icons/io5";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -51,9 +50,7 @@ const DetailDescription = ({ data }: { data: IMediaDetail }) => {
           <p className="text-xl text-gray-600 dark:text-gray-400">
             {data.overview}
           </p>
-          <Button className="mt-7 bg-black font-bold text-white dark:bg-white dark:text-black">
-            <IoPlayOutline className="text-2xl" /> Watch Trailer
-          </Button>
+          <ModalUI />
         </div>
       </div>
     </section>

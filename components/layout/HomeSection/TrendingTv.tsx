@@ -1,7 +1,7 @@
 import CardSkeleton from "@/components/skeleton/CardSkeleton";
 import Card from "@/components/ui/Card";
 import ITrendingTvshow from "@/types/trendingTvshow";
-import { Button } from "@nextui-org/button";
+import Link from "next/link";
 import React, { Suspense } from "react";
 
 const TrendingTv = async () => {
@@ -13,11 +13,14 @@ const TrendingTv = async () => {
 
   return (
     <section className="my-10 w-full">
-      <div className="flex items-center gap-x-5">
-        <h1 className="text-2xl font-bold">Trending Tv Shows</h1>
-        <Button className="font-semibold dark:bg-[#3C3D37]">
+      <div className="flex items-center justify-between gap-x-5 lg:justify-start">
+        <h1 className="text-xl font-bold lg:text-2xl">Trending Tv Shows</h1>
+        <Link
+          href={"/trending/tvshows"}
+          className="rounded-md px-4 py-1 font-semibold dark:bg-[#3C3D37]"
+        >
           Explore more
-        </Button>
+        </Link>
       </div>
       <div className="my-5 flex snap-x snap-mandatory space-x-4 overflow-x-scroll scroll-smooth scrollbar-hide">
         <Suspense fallback={<CardSkeleton length={5} />}>
