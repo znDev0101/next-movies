@@ -32,7 +32,7 @@ export default async function TrendingTvShowsPage({
           <p className="mt-2 text-lg text-gray-700 dark:text-gray-400">
             Catch up with the world and see what TV shows are currently
             trending. From viral sensations to critically acclaimed series, find
-            out what's capturing viewers' attention.
+            out what&apos;s capturing viewers&apos; attention.
           </p>
         </div>
         <div className="mt-10 grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-5">

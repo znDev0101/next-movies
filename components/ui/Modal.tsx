@@ -46,19 +46,17 @@ const ModalUI = () => {
         onOpenChange={onOpenChange}
       >
         <ModalContent>
-          {(onClose) => (
-            <>
-              <ModalBody className="relative">
-                <iframe
-                  src={`https://www.youtube.com/embed/${officialTrailer?.key}`}
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                  className="absolute left-0 top-0 h-full w-full"
-                />
-              </ModalBody>
-            </>
-          )}
+          <>
+            <ModalBody className="relative">
+              <iframe
+                src={`https://www.youtube.com/embed/${officialTrailer?.key}`}
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="absolute left-0 top-0 h-full w-full"
+              />
+            </ModalBody>
+          </>
         </ModalContent>
       </Modal>
     </>

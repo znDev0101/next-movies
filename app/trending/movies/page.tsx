@@ -30,8 +30,8 @@ export default async function TrendingMoviePage({
         <div className="my-16 lg:w-[60%]">
           <h1 className="text-3xl font-semibold">Trending Movies</h1>
           <p className="mt-2 text-lg text-gray-700 dark:text-gray-400">
-            Stay on the pulse of what's hot in the movie scene. See what films
-            are making waves and capturing audiences around the globe.
+            Stay on the pulse of what&apos;s hot in the movie scene. See what
+            films are making waves and capturing audiences around the globe.
           </p>
         </div>
         <div className="mt-10 grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-5">

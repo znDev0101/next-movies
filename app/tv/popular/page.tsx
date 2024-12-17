@@ -28,7 +28,7 @@ export default async function Popular(props: { searchParams: SearchParams }) {
           <p className="mt-2 text-lg text-gray-700 dark:text-gray-400">
             Dive into the world of popular TV shows that have captured the
             hearts of audiences worldwide. From binge-worthy series to
-            critically acclaimed dramas, discover what's trending in the TV
+            critically acclaimed dramas, discover what&apos;s trending in the TV
             universe.
           </p>
         </div>

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { Suspense } from "react";
+import React from "react";
 import { RiMovie2Line } from "react-icons/ri";
 import { TfiHome } from "react-icons/tfi";
 import Link from "next/link";

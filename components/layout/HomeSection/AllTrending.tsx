@@ -1,7 +1,6 @@
 import CardSkeleton from "@/components/skeleton/CardSkeleton";
 import Card from "@/components/ui/Card";
 import { IAllList } from "@/types/allList";
-import { Button } from "@nextui-org/button";
 import Link from "next/link";
 import React, { Suspense } from "react";
 
