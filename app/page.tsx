@@ -1,9 +1,9 @@
-import AllTrending from "@/components/layout/HomeSection/AllTrending";
-import HeroMovies from "@/components/layout/HomeSection/HeroMovies";
-import HeroSection from "@/components/layout/HomeSection/HeroSection";
-import HeroTv from "@/components/layout/HomeSection/HeroTv";
-import TrendingMovies from "@/components/layout/HomeSection/TrendingMovies";
-import TrendingTv from "@/components/layout/HomeSection/TrendingTv";
+import AllTrending from "@/components/layout/Home-section/AllTrending";
+import HeroMovies from "@/components/layout/Home-section/HeroMovies";
+import HeroSection from "@/components/layout/Home-section/HeroSection";
+import HeroTv from "@/components/layout/Home-section/HeroTv";
+import TrendingMovies from "@/components/layout/Home-section/TrendingMovies";
+import TrendingTv from "@/components/layout/Home-section/TrendingTv";
 import HeroSkeleton from "@/components/skeleton/HeroSkeleton";
 import { Suspense } from "react";
 

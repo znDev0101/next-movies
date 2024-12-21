@@ -1,8 +1,8 @@
 import CardDetail from "@/components/ui/CardDetail";
-import { ICardDetailProps } from "@/types/carddetail";
+import { ITabsDetailSimiliar } from "@/types/similiar";
 import React from "react";
 
-const Credits = ({ data }: { data: ICardDetailProps[] | undefined }) => {
+const Similiar = ({ data }: { data: ITabsDetailSimiliar[] | undefined }) => {
   return (
     <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
       {data?.length !== 0 ? (
@@ -12,10 +12,10 @@ const Credits = ({ data }: { data: ICardDetailProps[] | undefined }) => {
           })}
         </>
       ) : (
-        <h1 className="my-5 text-center text-2xl font-semibold">No Cast</h1>
+        <h1 className="my-5 text-center text-2xl font-semibold">No Similar</h1>
       )}
     </div>
   );
 };
 
-export default Credits;
+export default Similiar;

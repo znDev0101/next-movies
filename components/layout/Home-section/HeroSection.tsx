@@ -1,4 +1,3 @@
-import { IMediaDetail } from "@/types/mediaDetail";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -8,18 +7,20 @@ const HeroSection = async ({
   data,
   id,
 }: {
-  data?: IMediaDetail;
+  data?: Record<string, any>;
   id?: string;
 }) => {
+  const randomIndex = Math.floor(Math.random() * 20);
+  const imageBackdropPerson = data?.cast?.[randomIndex]?.backdrop_path;
+
   if (id !== undefined) {
     return (
       <section className="mx-auto mt-10 hidden w-[96%] lg:block">
         <div className="relative mt-16 overflow-hidden rounded-xl lg:h-[90vh]">
           <Image
-            src={`${process.env.NEXT_PUBLIC_IMG_PATH}/original${data?.backdrop_path}`}
+            src={`${process.env.NEXT_PUBLIC_IMG_PATH}/original${data?.backdrop_path || imageBackdropPerson}`}
             alt="image backdrop"
             fill
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 100vw"
             style={{
               objectFit: "cover",
             }}

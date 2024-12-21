@@ -40,9 +40,12 @@ const Card = ({ data, searchQuery = null, mediatype }: CardProps<IAllList>) => {
               </span>
             )}
           </div>
-          <h1 className="line-clamp-1 text-xl">{data.name || data.title}</h1>
+          <h1 className="mt-3 line-clamp-1 text-medium lg:text-xl">
+            {data.name || data.title}
+          </h1>
           <span className="text-xs dark:text-gray-400 lg:text-medium">
-            {data.release_date?.substring(0,4) || data.first_air_date?.substring(0,4)}
+            {data.release_date?.substring(0, 4) ||
+              data.first_air_date?.substring(0, 4)}
           </span>
         </div>
         <div className="absolute bottom-0 left-0 right-0 top-0 bg-gradient-to-t from-white opacity-95 dark:from-[#181C14]"></div>

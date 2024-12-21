@@ -1,4 +1,4 @@
-export interface IWatchProps {
+export interface ITabsDetailWatch {
   buy: any[];
   flatrate: any[];
   link: string;

@@ -1,15 +1,13 @@
-import { IReviewsProps } from "@/types/reviews";
+import { ITabsDetailReviews } from "@/types/reviews";
 import Image from "next/image";
 import React from "react";
 import { CgProfile } from "react-icons/cg";
 
-const Reviews = ({ data }: { data: IReviewsProps[] | undefined }) => {
-  console.log(data);
-
+const Reviews = ({ data }: { data: ITabsDetailReviews[] | undefined }) => {
   return (
     <div className="flex max-w-7xl flex-col gap-y-7">
       {data?.length !== 0 ? (
-        data?.map((data: IReviewsProps, i: number) => {
+        data?.map((data: ITabsDetailReviews, i: number) => {
           const date: Date = new Date(data.created_at);
 
           const formattedDate: string = new Intl.DateTimeFormat("en-US", {

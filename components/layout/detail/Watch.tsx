@@ -1,8 +1,8 @@
-import { IWatchProps } from "@/types/watch";
+import { ITabsDetailWatch } from "@/types/watch";
 import Image from "next/image";
 import React from "react";
 
-const Watch = ({ data }: { data: IWatchProps }) => {
+const Watch = ({ data }: { data: ITabsDetailWatch }) => {
   return data !== undefined ? (
     <div>
       <h1 className="text-2xl font-semibold">Where to Watch</h1>

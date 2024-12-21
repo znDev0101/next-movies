@@ -6,7 +6,7 @@ export interface IReviews {
   total_results: number;
 }
 
-export interface IReviewsProps {
+export interface ITabsDetailReviews {
   author: string;
   author_details: Record<string, string | number>;
   content: string;

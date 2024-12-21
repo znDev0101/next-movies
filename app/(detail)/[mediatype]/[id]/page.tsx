@@ -1,10 +1,13 @@
 import DetailDescription from "@/components/layout/detail/DetailDescription";
-import HeroSection from "@/components/layout/HomeSection/HeroSection";
+import TabsDetailMedia from "@/components/layout/detail/TabsDetailMedia";
+import HeroSection from "@/components/layout/Home-section/HeroSection";
 import HeroSkeleton from "@/components/skeleton/HeroSkeleton";
-import TabsDetails from "@/components/ui/TabsDetails";
+
 import { ICredits } from "@/types/credits";
 import { IMediaDetail } from "@/types/mediaDetail";
+import { IRecommendations } from "@/types/recommendations";
 import { IReviews } from "@/types/reviews";
+import { ISimiliar } from "@/types/similiar";
 import { IWatch } from "@/types/watch";
 import { fetchFromAPI } from "@/utils/fetchApi";
 import { Metadata } from "next";
@@ -35,12 +38,15 @@ export default async function Detail({
 }) {
   const { mediatype, id } = await params;
 
-  const [detail, credits, watch, reviews] = await Promise.all([
-    fetchFromAPI<IMediaDetail>(`${mediatype}/${id}`),
-    fetchFromAPI<ICredits>(`${mediatype}/${id}/credits`),
-    fetchFromAPI<IWatch>(`${mediatype}/${id}/watch/providers`),
-    fetchFromAPI<IReviews>(`${mediatype}/${id}/reviews`),
-  ]);
+  const [detail, credits, watch, reviews, recommendations, similar] =
+    await Promise.all([
+      fetchFromAPI<IMediaDetail>(`${mediatype}/${id}`),
+      fetchFromAPI<ICredits>(`${mediatype}/${id}/credits`),
+      fetchFromAPI<IWatch>(`${mediatype}/${id}/watch/providers`),
+      fetchFromAPI<IReviews>(`${mediatype}/${id}/reviews`),
+      fetchFromAPI<IRecommendations>(`${mediatype}/${id}/recommendations`),
+      fetchFromAPI<ISimiliar>(`${mediatype}/${id}/similar`),
+    ]);
 
   return (
     <main>
@@ -48,10 +54,12 @@ export default async function Detail({
         <HeroSection id={id} data={detail} />
       </Suspense>
       <DetailDescription data={detail as IMediaDetail} />
-      <TabsDetails
+      <TabsDetailMedia
         credits={credits?.cast}
-        watch={watch?.results.US}
+        watch={watch?.results?.US}
         reviews={reviews?.results}
+        recommendations={recommendations?.results}
+        similar={similar?.results}
       />
     </main>
   );
