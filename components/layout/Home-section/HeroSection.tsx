@@ -1,11 +1,11 @@
-import { IMediaDetail } from "@/types/mediaDetail";
+import { ITabsDetailCredits } from "@/types/credits";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { FaArrowRightLong } from "react-icons/fa6";
 
 interface HeroSectionImage {
-  cast?: any[];
+  cast?: ITabsDetailCredits[];
   backdrop_path: string;
 }
 

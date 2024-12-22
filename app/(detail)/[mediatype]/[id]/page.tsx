@@ -50,7 +50,9 @@ export default async function Detail({
 
   return (
     <main>
-      <HeroSection id={id} data={detail} />
+      <Suspense fallback={<HeroSection />}>
+        <HeroSection id={id} data={detail} />
+      </Suspense>
       <DetailDescription data={detail as IMediaDetail} />
       <TabsDetailMedia
         credits={credits?.cast}

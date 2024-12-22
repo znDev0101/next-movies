@@ -17,4 +17,5 @@ export interface ITabsDetailCredits {
   original_name: string;
   popularity: number;
   profile_path: string;
+  backdrop_path: string;
 }
