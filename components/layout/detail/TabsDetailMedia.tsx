@@ -4,7 +4,7 @@ import TabsDetails from "@/components/ui/TabsDetails";
 import { ITabsDetailCredits } from "@/types/credits";
 import { ITabsDetailRecommendations } from "@/types/recommendations";
 import { ITabsDetailReviews } from "@/types/reviews";
-import { ITabsDetailSimiliar } from "@/types/similiar";
+import { ITabsDetailSimilar } from "@/types/similar";
 import { ITabsDetailWatch } from "@/types/watch";
 import { Tab } from "@nextui-org/tabs";
 import React from "react";
@@ -25,7 +25,7 @@ const TabsDetailMedia = ({
   watch: ITabsDetailWatch;
   reviews: ITabsDetailReviews[] | undefined;
   recommendations: ITabsDetailRecommendations[] | undefined;
-  similar: ITabsDetailSimiliar[] | undefined;
+  similar: ITabsDetailSimilar[] | undefined;
 }) => {
   return (
     <TabsDetails>

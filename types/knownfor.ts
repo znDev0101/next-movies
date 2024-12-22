@@ -14,7 +14,8 @@ export interface IKnownFor {
   vote_average: number;
   vote_count: number;
   character: string;
-  credit_id: string;
+  credit_id: number;
+  cast_id?: number;
   order: number;
   media_type: string;
 }

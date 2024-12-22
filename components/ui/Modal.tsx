@@ -44,6 +44,7 @@ const ModalUI = () => {
         }}
         isOpen={isOpen}
         onOpenChange={onOpenChange}
+        placement="center"
       >
         <ModalContent>
           <>

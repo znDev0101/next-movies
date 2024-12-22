@@ -8,7 +8,7 @@ export interface ITabsDetailCredits {
   adult: boolean;
   cast_id: number;
   character: string;
-  credit_id: string;
+  credit_id: number;
   gender: number;
   id: number;
   known_for_department: string;

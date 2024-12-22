@@ -6,6 +6,7 @@ import { fetchFromAPI } from "@/utils/fetchApi";
 import { Metadata } from "next";
 import TabsDetailPerson from "@/components/layout/detail-person/TabsDetailPerson";
 import { IExternalIdPerson } from "@/types/externalidperson";
+import { IImagesPerson } from "@/types/imagesperson";
 
 type Props = {
   params: Promise<{ mediatype: string; id: string }>;
@@ -35,7 +36,7 @@ export default async function page({
       fetchFromAPI<IBackdropImagePerson>(`person/${id}/combined_credits`),
       fetchFromAPI<IDetailPerson>(`person/${id}`),
       fetchFromAPI<IExternalIdPerson>(`person/${id}/external_ids`),
-      fetchFromAPI<Record<string, any>>(`person/${id}/images`),
+      fetchFromAPI<IImagesPerson>(`person/${id}/images`),
     ]);
 
   return (

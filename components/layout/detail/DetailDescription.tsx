@@ -36,9 +36,17 @@ const DetailDescription = ({ data }: { data: IMediaDetail }) => {
               })}
             </div>
           </div>
-          <h1 className="mt-5 text-4xl font-semibold">
-            {data.title || data.name}
-          </h1>
+          <div className="mt-5 flex items-center gap-x-4">
+            <h1 className="text-3xl font-semibold">
+              {data.title || data.name}
+            </h1>
+            <span className="text-xl dark:text-gray-300">
+              (
+              {data.release_date?.substring(0, 4) ||
+                data.first_air_date?.substring(0, 4)}
+              )
+            </span>
+          </div>
           {data.tagline.length !== 0 && (
             <div className="my-6">
               <q className="text-xl text-gray-600 dark:text-gray-400">

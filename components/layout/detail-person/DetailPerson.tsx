@@ -38,12 +38,9 @@ const DetailPerson = ({
           />
         </div>
         <div className="mt-10">
-          <div className="flex flex-col gap-x-5 gap-y-3 lg:flex-row lg:items-center">
-            <h1 className="text-3xl font-semibold lg:text-2xl">
-              {detailPersonData?.name}
-            </h1>
+          <div className="flex flex-col gap-x-5 gap-y-3">
+            <h1 className="text-4xl font-semibold">{detailPersonData?.name}</h1>
 
-            <PiLineVertical className="hidden text-5xl lg:block" />
             <div className="flex gap-x-4">
               {externalIdPersonData?.instagram_id !== null && (
                 <Link
@@ -51,10 +48,7 @@ const DetailPerson = ({
                   target="_blank"
                   className="flex flex-col items-center"
                 >
-                  <FaInstagram className="text-2xl" />
-                  <span className="text-xs">
-                    @{externalIdPersonData?.instagram_id}
-                  </span>
+                  <FaInstagram className="text-xl lg:text-2xl" />
                 </Link>
               )}
               {externalIdPersonData?.facebook_id !== null && (
@@ -63,10 +57,7 @@ const DetailPerson = ({
                   target="_blank"
                   className="flex flex-col items-center"
                 >
-                  <FaFacebook className="text-2xl" />
-                  <span className="text-xs">
-                    @{externalIdPersonData?.facebook_id}
-                  </span>
+                  <FaFacebook className="text-xl lg:text-2xl" />
                 </Link>
               )}
               <Link
@@ -74,10 +65,7 @@ const DetailPerson = ({
                 target="_blank"
                 className="flex flex-col items-center"
               >
-                <FaImdb className="text-2xl" />
-                <span className="text-xs">
-                  @{externalIdPersonData?.imdb_id}
-                </span>
+                <FaImdb className="text-xl lg:text-2xl" />
               </Link>
             </div>
           </div>

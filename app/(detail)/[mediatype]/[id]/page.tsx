@@ -7,7 +7,7 @@ import { ICredits } from "@/types/credits";
 import { IMediaDetail } from "@/types/mediaDetail";
 import { IRecommendations } from "@/types/recommendations";
 import { IReviews } from "@/types/reviews";
-import { ISimiliar } from "@/types/similiar";
+import { ISimilar } from "@/types/similar";
 import { IWatch } from "@/types/watch";
 import { fetchFromAPI } from "@/utils/fetchApi";
 import { Metadata } from "next";
@@ -45,7 +45,7 @@ export default async function Detail({
       fetchFromAPI<IWatch>(`${mediatype}/${id}/watch/providers`),
       fetchFromAPI<IReviews>(`${mediatype}/${id}/reviews`),
       fetchFromAPI<IRecommendations>(`${mediatype}/${id}/recommendations`),
-      fetchFromAPI<ISimiliar>(`${mediatype}/${id}/similar`),
+      fetchFromAPI<ISimilar>(`${mediatype}/${id}/similar`),
     ]);
 
   return (
