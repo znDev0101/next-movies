@@ -6,7 +6,7 @@ import { IImagesPersonData } from "@/types/imagesperson";
 import { IKnownFor } from "@/types/knownfor";
 import { Tab } from "@nextui-org/tabs";
 import Image from "next/image";
-import React, { useState } from "react";
+import React from "react";
 
 const TabsDetailPerson = ({
   knownForData,

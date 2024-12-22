@@ -1,15 +1,20 @@
+import { IMediaDetail } from "@/types/mediaDetail";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { FaArrowRightLong } from "react-icons/fa6";
 
-const HeroSection = async ({
-  data,
-  id,
-}: {
-  data?: Record<string, any>;
+interface HeroSectionImage {
+  cast?: any[];
+  backdrop_path: string;
+}
+
+interface IHeroSectionProps {
+  data?: HeroSectionImage;
   id?: string;
-}) => {
+}
+
+const HeroSection = async ({ data, id }: IHeroSectionProps) => {
   const randomIndex = Math.floor(Math.random() * 20);
   const imageBackdropPerson = data?.cast?.[randomIndex]?.backdrop_path;
 

@@ -4,7 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { FaFacebook, FaImdb, FaInstagram } from "react-icons/fa6";
-import { PiLineVertical } from "react-icons/pi";
 
 const DetailPerson = ({
   detailPersonData,

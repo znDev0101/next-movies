@@ -62,22 +62,20 @@ const CardDetail = <
         hideCloseButton
       >
         <ModalContent>
-          {(onClose) => (
-            <>
-              <ModalBody className="p-0">
-                <div className="relative h-[30rem] w-full lg:h-[90vh]">
-                  <Image
-                    src={`${process.env.NEXT_PUBLIC_IMG_PATH}/original${data.file_path}`}
-                    alt="img person"
-                    fill
-                    style={{
-                      objectFit: "cover",
-                    }}
-                  />
-                </div>
-              </ModalBody>
-            </>
-          )}
+          <>
+            <ModalBody className="p-0">
+              <div className="relative h-[30rem] w-full lg:h-[90vh]">
+                <Image
+                  src={`${process.env.NEXT_PUBLIC_IMG_PATH}/original${data.file_path}`}
+                  alt="img person"
+                  fill
+                  style={{
+                    objectFit: "cover",
+                  }}
+                />
+              </div>
+            </ModalBody>
+          </>
         </ModalContent>
       </Modal>
     </>
