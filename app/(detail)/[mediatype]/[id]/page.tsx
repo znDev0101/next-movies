@@ -1,7 +1,6 @@
 import DetailDescription from "@/components/layout/detail/DetailDescription";
 import TabsDetailMedia from "@/components/layout/detail/TabsDetailMedia";
 import HeroSection from "@/components/layout/Home-section/HeroSection";
-import HeroSkeleton from "@/components/skeleton/HeroSkeleton";
 
 import { ICredits } from "@/types/credits";
 import { IMediaDetail } from "@/types/mediaDetail";
