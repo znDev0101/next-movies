@@ -6,7 +6,7 @@ import { FaArrowRightLong } from "react-icons/fa6";
 
 interface HeroSectionImage {
   cast?: ITabsDetailCredits[];
-  backdrop_path: string;
+  backdrop_path?: string;
 }
 
 interface IHeroSectionProps {
