@@ -15,7 +15,7 @@ const DropdownItemMobile = ({ data }: { data: DropdownProps }) => {
   return (
     <Link
       href={`/${data.typeLink}/${data.nameDropDown.replace(/\s+/g, "").toLocaleLowerCase()}`}
-      className="ms-6 flex gap-x-2 text-black dark:text-white"
+      className="ms-6 flex gap-x-2 text-black duration-200 dark:text-white"
     >
       <div className="h-5 w-5">
         <Icon className="h-full w-full" />

@@ -29,9 +29,9 @@ const Card = ({ data, searchQuery = null, mediatype }: CardProps<IAllList>) => {
             priority
           />
         )}
-        <div className="absolute bottom-3 z-40 flex flex-col px-3 font-semibold lg:bottom-5 lg:gap-y-1">
+        <div className="absolute bottom-3 z-40 flex flex-col px-2 font-semibold lg:bottom-5 lg:gap-y-1">
           <div className="flex gap-x-3">
-            <span className="rounded-full bg-[#181C14] px-5 py-1 text-xs text-white dark:bg-white dark:text-black">
+            <span className="rounded-full bg-[#181C14] px-3 py-1 text-xs text-white dark:bg-white dark:text-black">
               {data.vote_average}
             </span>
             {data.media_type !== undefined && (

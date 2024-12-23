@@ -17,8 +17,8 @@ const DetailDescription = ({ data }: { data: IMediaDetail }) => {
           />
         </div>
         <div className="my-5 w-full">
-          <div className="flex gap-x-4">
-            <span className="rounded-full bg-black px-3 text-xs font-semibold text-white dark:bg-white dark:text-black lg:text-medium">
+          <div className="flex gap-x-2">
+            <span className="rounded-full bg-black px-2 text-xs font-semibold text-white dark:bg-white dark:text-black lg:text-medium">
               {data.vote_average}
             </span>
 
@@ -28,7 +28,7 @@ const DetailDescription = ({ data }: { data: IMediaDetail }) => {
                   <Link
                     href={`${data.name}`}
                     key={i}
-                    className="rounded-full bg-gray-200 px-2 text-xs font-semibold dark:bg-gray-800 dark:text-white lg:text-medium"
+                    className="rounded-full bg-gray-200 px-1 text-xs font-semibold dark:bg-gray-800 dark:text-white lg:text-medium"
                   >
                     {data.name}
                   </Link>
@@ -37,10 +37,10 @@ const DetailDescription = ({ data }: { data: IMediaDetail }) => {
             </div>
           </div>
           <div className="mt-5 flex items-center gap-x-4">
-            <h1 className="text-3xl font-semibold">
+            <h1 className="text-4xl font-semibold">
               {data.title || data.name}
             </h1>
-            <span className="text-xl dark:text-gray-300">
+            <span className="self-end text-xl dark:text-gray-300">
               (
               {data.release_date?.substring(0, 4) ||
                 data.first_air_date?.substring(0, 4)}
@@ -49,13 +49,13 @@ const DetailDescription = ({ data }: { data: IMediaDetail }) => {
           </div>
           {data.tagline.length !== 0 && (
             <div className="my-6">
-              <q className="text-xl text-gray-600 dark:text-gray-400">
+              <q className="text-xl font-semibold text-gray-600 dark:text-gray-400">
                 {data.tagline}
               </q>
             </div>
           )}
 
-          <p className="text-xl text-gray-600 dark:text-gray-400">
+          <p className="text-medium text-gray-600 dark:text-gray-400">
             {data.overview}
           </p>
           <ModalUI />

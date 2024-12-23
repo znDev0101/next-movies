@@ -20,7 +20,9 @@ const MenuNavMobile = ({ data }: { data: menuNavDropDown }) => {
           </div>
           <span>{data.nameNav}</span>
         </div>
-        <IconDown />
+        <IconDown
+          className={`${isShowItemDropdown ? `rotate-180` : `rotate-0`} transform transition-transform duration-700`}
+        />
       </div>
       {isShowItemDropdown &&
         data.menuDropDown.map((data, i) => {

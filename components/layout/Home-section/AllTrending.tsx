@@ -16,7 +16,7 @@ const AllTrending = async () => {
         <h1 className="text-xl font-bold lg:text-2xl">Trending Today</h1>
         <Link
           href={"/trending/trendingnow"}
-          className="rounded-md px-4 py-1 font-semibold dark:bg-[#3C3D37]"
+          className="rounded-md bg-gray-300 px-4 py-1 font-semibold dark:bg-[#3C3D37]"
         >
           Explore more
         </Link>

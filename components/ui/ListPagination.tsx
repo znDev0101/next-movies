@@ -28,6 +28,10 @@ const ListPagination = () => {
       <Pagination
         classNames={{
           base: "mx-auto flex justify-center my-7",
+          item: "bg-gray-200 text-black dark:bg-gray-900 dark:text-white ",
+          cursor: "bg-gray-800 text-white dark:bg-white dark:text-black",
+          next: "bg-gray-200 dark:bg-gray-700",
+          prev: "bg-gray-200 dark:bg-gray-700",
         }}
         showControls
         onChange={handlePageChange}
