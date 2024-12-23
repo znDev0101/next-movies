@@ -18,17 +18,17 @@ const DetailDescription = ({ data }: { data: IMediaDetail }) => {
         </div>
         <div className="my-5 w-full">
           <div className="flex gap-x-2">
-            <span className="rounded-full bg-black px-2 text-xs font-semibold text-white dark:bg-white dark:text-black lg:text-medium">
+            <span className="self-start rounded-full bg-black px-2 text-xs font-semibold text-white dark:bg-white dark:text-black lg:text-medium">
               {data.vote_average}
             </span>
 
-            <div className="flex gap-x-2">
+            <div className="flex flex-wrap gap-x-2 gap-y-2">
               {data.genres.map((data, i) => {
                 return (
                   <Link
                     href={`${data.name}`}
                     key={i}
-                    className="rounded-full bg-gray-200 px-1 text-xs font-semibold dark:bg-gray-800 dark:text-white lg:text-medium"
+                    className="rounded-full bg-gray-200 px-2 text-xs font-semibold dark:bg-gray-800 dark:text-white lg:text-medium"
                   >
                     {data.name}
                   </Link>
@@ -36,28 +36,28 @@ const DetailDescription = ({ data }: { data: IMediaDetail }) => {
               })}
             </div>
           </div>
-          <div className="mt-5 flex items-center gap-x-4">
-            <h1 className="text-4xl font-semibold">
-              {data.title || data.name}
-            </h1>
-            <span className="self-end text-xl dark:text-gray-300">
-              (
-              {data.release_date?.substring(0, 4) ||
-                data.first_air_date?.substring(0, 4)}
-              )
-            </span>
-          </div>
-          {data.tagline.length !== 0 && (
-            <div className="my-6">
+          <div className="mt-5 flex flex-col gap-y-4">
+            <div className="flex items-center gap-x-4">
+              <h1 className="text-4xl font-semibold">
+                {data.title || data.name}
+              </h1>
+              <span className="self-end text-xl dark:text-gray-300">
+                (
+                {data.release_date?.substring(0, 4) ||
+                  data.first_air_date?.substring(0, 4)}
+                )
+              </span>
+            </div>
+            {data.tagline.length !== 0 && (
               <q className="text-xl font-semibold text-gray-600 dark:text-gray-400">
                 {data.tagline}
               </q>
-            </div>
-          )}
+            )}
 
-          <p className="text-medium text-gray-600 dark:text-gray-400">
-            {data.overview}
-          </p>
+            <p className="text-medium text-gray-600 dark:text-gray-400">
+              {data.overview}
+            </p>
+          </div>
           <ModalUI />
         </div>
       </div>

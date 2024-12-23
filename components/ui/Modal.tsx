@@ -20,6 +20,8 @@ const ModalUI = () => {
     `https://api.themoviedb.org/3/${mediatype}/${id}/videos?api_key=${process.env.API_KEY}`,
   );
 
+  console.log(data);
+
   const officialTrailer = data?.find(
     (video) =>
       video.type === "Trailer" &&
