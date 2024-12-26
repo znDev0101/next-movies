@@ -43,10 +43,10 @@ const MobileMenu = () => {
                     className="flex items-center gap-x-3 dark:text-white"
                   >
                     <div className="flex items-center gap-x-3">
-                      <div className="h-6 w-6">
+                      <div className="h-5 w-5">
                         <TfiHome className="h-full w-full" />
                       </div>
-                      <span>Home</span>
+                      <span className="font-semibold">Home</span>
                     </div>
                   </Link>
                 </li>

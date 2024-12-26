@@ -9,7 +9,7 @@ const MenuNavMobile = ({ data }: { data: menuNavDropDown }) => {
   const { IconDown, IconNav } = data;
 
   return (
-    <li className="my-3 flex flex-col duration-200">
+    <li className="my-5 flex flex-col overflow-hidden transition-all duration-200">
       <div
         className="flex items-center justify-between"
         onClick={() => setIsShowItemDropdown(!isShowItemDropdown)}
@@ -18,16 +18,22 @@ const MenuNavMobile = ({ data }: { data: menuNavDropDown }) => {
           <div className="h-6 w-6">
             <IconNav className="h-full w-full" />
           </div>
-          <span>{data.nameNav}</span>
+          <span className="font-semibold">{data.nameNav}</span>
         </div>
         <IconDown
           className={`${isShowItemDropdown ? `rotate-180` : `rotate-0`} transform transition-transform duration-700`}
         />
       </div>
-      {isShowItemDropdown &&
-        data.menuDropDown.map((data, i) => {
-          return <DropdownItemMobile data={data} key={i} />;
-        })}
+
+      {data.menuDropDown.map((data, i) => {
+        return (
+          <DropdownItemMobile
+            data={data}
+            key={i}
+            isShowItemDropdown={isShowItemDropdown}
+          />
+        );
+      })}
     </li>
   );
 };
