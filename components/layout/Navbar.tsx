@@ -1,7 +1,6 @@
 "use client";
 
 import React, { Suspense } from "react";
-import { RiMovie2Line } from "react-icons/ri";
 import { TfiHome } from "react-icons/tfi";
 import Link from "next/link";
 import SearchBarNav from "../ui/SearchBarNav";
@@ -10,6 +9,7 @@ import { usePathname } from "next/navigation";
 import { dataMenuNavbar } from "@/data/dataMenuNavbar";
 import dynamic from "next/dynamic";
 import MenuNav from "../MenuNav";
+import { PiFilmSlate } from "react-icons/pi";
 
 const ThemeSwitch = dynamic(() => import("../ui/ThemeSwitch"), { ssr: false });
 
@@ -21,7 +21,7 @@ const Navbar = () => {
       <header className="w fixed top-0 z-50 flex w-full items-center gap-x-3 border-b border-gray-400 bg-white px-2 py-2 dark:bg-[#181C14] lg:justify-between lg:px-5 lg:py-2">
         <nav className="relative flex items-center gap-x-7">
           <Link href={"/"}>
-            <RiMovie2Line className="text-4xl" />
+            <PiFilmSlate className="text-4xl" />
           </Link>
           <ul className="hidden items-center gap-x-7 font-semibold lg:flex">
             <li

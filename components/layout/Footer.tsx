@@ -3,7 +3,7 @@ import { menuNavDropDown } from "@/types/menuNav";
 import Link from "next/link";
 import React from "react";
 import { IoLogoVercel } from "react-icons/io5";
-import { RiMovie2Line } from "react-icons/ri";
+import { PiFilmSlate } from "react-icons/pi";
 import { SiNextdotjs, SiNextui } from "react-icons/si";
 
 const Footer = () => {
@@ -12,7 +12,7 @@ const Footer = () => {
   return (
     <footer className="mt-20 flex w-full flex-col border-t-1 border-gray-300 dark:border-gray-800 lg:gap-y-7">
       <div className="items-star flex w-full px-5 py-10 lg:px-20">
-        <RiMovie2Line className="text-3xl" />
+        <PiFilmSlate className="text-3xl" />
         <div className="ms-72 hidden gap-x-80 lg:flex">
           {dataMenuNavbar.map((data: menuNavDropDown, i: number) => {
             return (
