@@ -21,25 +21,27 @@ export default async function Popular(props: { searchParams: SearchParams }) {
   const { results } = await response.json();
 
   return (
-    <main>
-      <section className="mx-auto mt-24 w-[95%]">
+    <main className="mt-24 w-full px-2 lg:px-5">
+      <section>
         <div className="my-16 lg:w-[60%]">
           <h1 className="text-3xl font-semibold">Popular TV Shows</h1>
-          <p className="mt-2 text-lg text-gray-700 dark:text-gray-400">
+          <p className="mt-2 text-medium text-gray-700 dark:text-gray-400 lg:text-lg">
             Dive into the world of popular TV shows that have captured the
             hearts of audiences worldwide. From binge-worthy series to
             critically acclaimed dramas, discover what&apos;s trending in the TV
             universe.
           </p>
         </div>
-        <div className="grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-5">
+        <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
           {results.map((data: IAllList, i: number) => {
             return <Card data={data} key={i} mediatype="tv" />;
           })}
         </div>
-        <Suspense fallback={<p>Loading...</p>}>
-          <ListPagination />
-        </Suspense>
+        {results?.total_pages !== 1 && (
+          <Suspense fallback={<p>Loading...</p>}>
+            <ListPagination totalPage={results?.total_pages} />
+          </Suspense>
+        )}
       </section>
     </main>
   );

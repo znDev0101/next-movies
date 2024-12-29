@@ -21,24 +21,26 @@ export default async function OnTheAir(props: { searchParams: SearchParams }) {
   const { results } = await response.json();
 
   return (
-    <main>
-      <section className="mx-auto mt-24 w-[95%]">
+    <main className="mt-24 w-full px-2 lg:px-5">
+      <section>
         <div className="my-16 lg:w-[60%]">
           <h1 className="text-3xl font-semibold">On The Air</h1>
-          <p className="mt-2 text-lg text-gray-700 dark:text-gray-400">
+          <p className="mt-2 text-medium text-gray-700 dark:text-gray-400 lg:text-lg">
             Tune in to the latest buzz with shows currently on the air. From
             gripping dramas to laugh-out-loud comedies, watch what&apos;s
             captivating audiences right now.
           </p>
         </div>
-        <div className="grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-5">
+        <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
           {results.map((data: IAllList, i: number) => {
             return <Card data={data} key={i} mediatype="tv" />;
           })}
         </div>
-        <Suspense fallback={<p>Loading...</p>}>
-          <ListPagination />
-        </Suspense>
+        {results?.total_pages !== 1 && (
+          <Suspense fallback={<p>Loading...</p>}>
+            <ListPagination totalPage={results?.total_pages} />
+          </Suspense>
+        )}
       </section>
     </main>
   );

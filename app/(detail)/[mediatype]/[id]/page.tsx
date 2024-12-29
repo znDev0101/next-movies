@@ -21,12 +21,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { mediatype, id } = await params;
 
   // fetch data
-  const results = await fetch(
-    `https://api.themoviedb.org/3/${mediatype}/${id}?api_key=${process.env.API_KEY}`,
-  ).then((res) => res.json());
+  const results = await fetchFromAPI<IMediaDetail>(
+    `${mediatype}/${id}?api_key=${process.env.API_KEY}`,
+  );
 
   return {
-    title: `${results.title || results.name} - Movies App`,
+    title: `${results?.title || results?.name} - Movies App`,
   };
 }
 
@@ -39,12 +39,24 @@ export default async function Detail({
 
   const [detail, credits, watch, reviews, recommendations, similar] =
     await Promise.all([
-      fetchFromAPI<IMediaDetail>(`${mediatype}/${id}`),
-      fetchFromAPI<ICredits>(`${mediatype}/${id}/credits`),
-      fetchFromAPI<IWatch>(`${mediatype}/${id}/watch/providers`),
-      fetchFromAPI<IReviews>(`${mediatype}/${id}/reviews`),
-      fetchFromAPI<IRecommendations>(`${mediatype}/${id}/recommendations`),
-      fetchFromAPI<ISimilar>(`${mediatype}/${id}/similar`),
+      fetchFromAPI<IMediaDetail>(
+        `${mediatype}/${id}?api_key=${process.env.API_KEY}`,
+      ),
+      fetchFromAPI<ICredits>(
+        `${mediatype}/${id}/credits?api_key=${process.env.API_KEY}`,
+      ),
+      fetchFromAPI<IWatch>(
+        `${mediatype}/${id}/watch/providers?api_key=${process.env.API_KEY}`,
+      ),
+      fetchFromAPI<IReviews>(
+        `${mediatype}/${id}/reviews?api_key=${process.env.API_KEY}`,
+      ),
+      fetchFromAPI<IRecommendations>(
+        `${mediatype}/${id}/recommendations?api_key=${process.env.API_KEY}`,
+      ),
+      fetchFromAPI<ISimilar>(
+        `${mediatype}/${id}/similar?api_key=${process.env.API_KEY}`,
+      ),
     ]);
 
   return (

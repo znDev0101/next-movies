@@ -3,7 +3,8 @@ export interface IAllList {
   id: number;
   title?: string;
   name?: string;
-  original_title: string;
+  original_title?: string;
+  original_name?: string;
   overview: string;
   poster_path: string;
   media_type?: string;
@@ -17,4 +18,12 @@ export interface IAllList {
   video: boolean;
   vote_average: number;
   vote_count: number;
+}
+
+export interface IAllMedia {
+  dates: Record<string, string>;
+  page: number;
+  results: IAllList[];
+  total_pages: number;
+  total_results: number;
 }

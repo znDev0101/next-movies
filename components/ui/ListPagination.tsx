@@ -5,14 +5,14 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { usePathname } from "next/navigation";
 import React from "react";
 
-const ListPagination = () => {
+const ListPagination = ({ totalPage }: { totalPage: number | undefined }) => {
   const searchParams = useSearchParams();
-  const getPage = searchParams.get("page");
+  const page = searchParams.get("page");
   const query = searchParams.get("query");
-
+  const sortBy = searchParams.get("sort_by");
+  const genreId = searchParams.get("with_genres");
   const pathname = usePathname();
 
-  const totalPages = 100;
   const router = useRouter();
 
   const handlePageChange = (page: number) => {
@@ -20,6 +20,16 @@ const ListPagination = () => {
       router.push(`${pathname}?query=${query}&page=${page}`);
     } else {
       router.push(`${pathname}?page=${page}`);
+    }
+
+    if (sortBy !== null && pathname !== "/search") {
+      router.push(
+        `${pathname}?with_genres=${genreId}&sort_by=${sortBy}&page=${page}`,
+      );
+    }
+
+    if (genreId !== null && pathname !== "/search" && sortBy === null) {
+      router.push(`${pathname}?with_genres=${genreId}&page=${page}`);
     }
   };
 
@@ -35,8 +45,9 @@ const ListPagination = () => {
         }}
         showControls
         onChange={handlePageChange}
-        total={totalPages}
-        initialPage={getPage === null ? 1 : parseInt(getPage)}
+        total={totalPage as number}
+        page={page === null ? 1 : parseInt(page)}
+        initialPage={page === null ? 1 : parseInt(page)}
       />
     </div>
   );

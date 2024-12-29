@@ -20,18 +20,16 @@ const ModalUI = () => {
     `https://api.themoviedb.org/3/${mediatype}/${id}/videos?api_key=${process.env.API_KEY}`,
   );
 
-  console.log(data);
-
   const officialTrailer = data?.find(
     (video) =>
       video.type === "Trailer" &&
-      video.official === true &&
-      video.site === "YouTube",
+      (video.official === true || video.site === "YouTube"),
   );
 
   return (
     <>
       <Button
+        isDisabled={officialTrailer === undefined}
         onPress={onOpen}
         className="mt-7 bg-black font-bold text-white dark:bg-white dark:text-black"
       >

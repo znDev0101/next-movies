@@ -25,22 +25,22 @@ export default async function TrendingMoviePage({
   const { results } = await response.json();
 
   return (
-    <main>
-      <section className="mx-auto mt-24 w-[95%]">
+    <main className="mt-24 w-full px-2 lg:px-5">
+      <section>
         <div className="my-16 lg:w-[60%]">
           <h1 className="text-3xl font-semibold">Trending Movies</h1>
-          <p className="mt-2 text-lg text-gray-700 dark:text-gray-400">
+          <p className="mt-2 text-medium text-gray-700 dark:text-gray-400 lg:text-lg">
             Stay on the pulse of what&apos;s hot in the movie scene. See what
             films are making waves and capturing audiences around the globe.
           </p>
         </div>
-        <div className="mt-10 grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-5">
+        <div className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
           {results?.map((data: IAllList, i: number) => {
             return <Card data={data} key={i} mediatype={"movie"} />;
           })}
         </div>
         <Suspense fallback={<p>Loading...</p>}>
-          <ListPagination />
+          <ListPagination totalPage={500} />
         </Suspense>
       </section>
     </main>

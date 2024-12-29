@@ -33,13 +33,13 @@ export default async function AllTrendingPage({
             Catch the all Trending now
           </p>
         </div>
-        <div className="mt-10 grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-5">
+        <div className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
           {results?.map((data: IAllList, i: number) => {
             return <Card data={data} key={i} mediatype={"movie"} />;
           })}
         </div>
         <Suspense fallback={<p>Loading...</p>}>
-          <ListPagination />
+          <ListPagination totalPage={500} />
         </Suspense>
       </section>
     </main>

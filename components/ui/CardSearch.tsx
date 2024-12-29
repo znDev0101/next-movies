@@ -19,14 +19,16 @@ const CardSearch = () => {
   );
 
   return (
-    <main>
-      <div className="mt-20 flex flex-col items-center justify-center">
-        <h1 className="text-2xl font-semibold text-black dark:text-white">
-          Search results for
-        </h1>
-        <span className="text-xl">&quot;{query}&quot;</span>
-      </div>
-      <section className="m-5">
+    <>
+      <section>
+        <div className="mt-20 flex flex-col items-center justify-center">
+          <h1 className="text-2xl font-semibold text-black dark:text-white">
+            Search results for
+          </h1>
+          <span className="text-xl">&quot;{query}&quot;</span>
+        </div>
+      </section>
+      <section>
         <div className="mt-10 grid grid-cols-2 gap-x-4 gap-y-3 sm:grid-cols-3 lg:grid-cols-5">
           {isLoading ? (
             <CardSkeleton length={20} searchQuery={query} />
@@ -37,7 +39,7 @@ const CardSearch = () => {
           )}
         </div>
       </section>
-    </main>
+    </>
   );
 };
 

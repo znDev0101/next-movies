@@ -9,7 +9,7 @@ import { Suspense } from "react";
 
 export default function Home() {
   return (
-    <main className="mx-auto w-[95%] lg:w-[98%]">
+    <main className="mx-auto w-full px-2 lg:px-5">
       <Suspense fallback={<HeroSkeleton />}>
         <HeroSection />
       </Suspense>

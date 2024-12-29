@@ -2,9 +2,7 @@ export async function fetchFromAPI<T>(
   endpoint: string,
 ): Promise<T | undefined> {
   try {
-    const response = await fetch(
-      `https://api.themoviedb.org/3/${endpoint}?api_key=${process.env.API_KEY}`,
-    );
+    const response = await fetch(`https://api.themoviedb.org/3/${endpoint}`);
 
     if (response.ok) {
       console.log("Promise resolved and HTTP status is successful");

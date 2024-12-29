@@ -5,6 +5,8 @@ import Link from "next/link";
 import React from "react";
 
 const DetailDescription = ({ data }: { data: IMediaDetail }) => {
+  const mediatype = data.release_date !== undefined;
+
   return (
     <section className="mx-auto mt-20 w-[95%] lg:mt-20 lg:w-[85%]">
       <div className="flex w-full flex-col items-center gap-x-3 lg:grid lg:grid-cols-[max-content_1fr] lg:gap-x-20">
@@ -26,7 +28,11 @@ const DetailDescription = ({ data }: { data: IMediaDetail }) => {
               {data.genres.map((data, i) => {
                 return (
                   <Link
-                    href={`${data.name}`}
+                    href={
+                      mediatype
+                        ? `/movie/discover?with_genres=${data.id}`
+                        : `/tv/discover?with_genres=${data.id}`
+                    }
                     key={i}
                     className="rounded-full bg-gray-200 px-2 text-xs font-semibold dark:bg-gray-800 dark:text-white lg:text-medium"
                   >

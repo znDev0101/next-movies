@@ -17,7 +17,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { id } = await params;
 
   // fetch data
-  const results = await fetchFromAPI<IDetailPerson>(`person/${id}`);
+  const results = await fetchFromAPI<IDetailPerson>(
+    `person/${id}?api_key=${process.env.API_KEY}`,
+  );
 
   return {
     title: `${results?.name} - Movies App`,
@@ -33,10 +35,18 @@ export default async function page({
 
   const [heroImage, detailPerson, exteranlIdPerson, imagesPerson] =
     await Promise.all([
-      fetchFromAPI<IBackdropImagePerson>(`person/${id}/combined_credits`),
-      fetchFromAPI<IDetailPerson>(`person/${id}`),
-      fetchFromAPI<IExternalIdPerson>(`person/${id}/external_ids`),
-      fetchFromAPI<IImagesPerson>(`person/${id}/images`),
+      fetchFromAPI<IBackdropImagePerson>(
+        `person/${id}/combined_credits?api_key=${process.env.API_KEY}`,
+      ),
+      fetchFromAPI<IDetailPerson>(
+        `person/${id}?api_key=${process.env.API_KEY}`,
+      ),
+      fetchFromAPI<IExternalIdPerson>(
+        `person/${id}/external_ids?api_key=${process.env.API_KEY}`,
+      ),
+      fetchFromAPI<IImagesPerson>(
+        `person/${id}/images?api_key=${process.env.API_KEY}`,
+      ),
     ]);
 
   return (

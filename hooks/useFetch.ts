@@ -1,12 +1,16 @@
+import { useParams, usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
 export default function useFetch(
   urlApi: string,
   querySearch?: string | null,
   page?: string | null,
+  selectSortMedia?: string | null,
 ) {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [data, setData] = useState<any[]>();
+  const patname = usePathname();
+  const { mediatype, id } = useParams();
 
   const getData = async () => {
     try {
@@ -27,6 +31,12 @@ export default function useFetch(
       console.error("Error Message" + error);
     }
   };
+
+  useEffect(() => {
+    if (patname !== "/search" && patname === `/${mediatype}/discover`) {
+      getData();
+    }
+  }, [selectSortMedia, page]);
 
   useEffect(() => {
     if (querySearch?.length !== 0) getData();
