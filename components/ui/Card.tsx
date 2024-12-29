@@ -1,7 +1,6 @@
 import { IAllList } from "@/types/allList";
 import Image from "next/image";
 import Link from "next/link";
-import { BiCameraMovie } from "react-icons/bi";
 
 interface CardProps<T> {
   data: T;
