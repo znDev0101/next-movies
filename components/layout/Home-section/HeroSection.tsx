@@ -44,7 +44,7 @@ const HeroSection = async ({ data, id }: IHeroSectionProps) => {
     const imageBackDrop = `https://image.tmdb.org/t/p/original${results.results[randomIndex]?.backdrop_path}`;
 
     return (
-      <section className="relative z-40 mt-20 h-[75vh] overflow-hidden rounded-lg lg:mt-16 lg:h-[90vh]">
+      <section className="relative z-40 mt-16 h-[75vh] overflow-hidden rounded-lg lg:h-[90vh]">
         <div className="relative h-full">
           <Image
             alt="image backdrop"

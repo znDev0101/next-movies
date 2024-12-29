@@ -47,7 +47,7 @@ const DetailPerson = ({
                   target="_blank"
                   className="flex flex-col items-center"
                 >
-                  <FaInstagram className="text-xl lg:text-2xl" />
+                  <FaInstagram className="text-2xl" />
                 </Link>
               )}
               {externalIdPersonData?.facebook_id !== null && (
@@ -56,7 +56,7 @@ const DetailPerson = ({
                   target="_blank"
                   className="flex flex-col items-center"
                 >
-                  <FaFacebook className="text-xl lg:text-2xl" />
+                  <FaFacebook className="text-2xl" />
                 </Link>
               )}
               <Link
@@ -64,7 +64,7 @@ const DetailPerson = ({
                 target="_blank"
                 className="flex flex-col items-center"
               >
-                <FaImdb className="text-xl lg:text-2xl" />
+                <FaImdb className="text-2xl" />
               </Link>
             </div>
           </div>
