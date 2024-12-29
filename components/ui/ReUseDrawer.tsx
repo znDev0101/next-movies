@@ -45,17 +45,15 @@ const ReUseDrawer = ({
         }}
       >
         <DrawerContent>
-          {(onClose) => (
-            <>
-              <DrawerHeader className="flex flex-col gap-1">
-                <h1>{titleDrawer}</h1>
-                <p className="font-normal">{descriptionTitleDrawer}</p>
-              </DrawerHeader>
-              <DrawerBody>
-                <p>Fitur ini masih tahap pengembangan mohon bersabar</p>
-              </DrawerBody>
-            </>
-          )}
+          <>
+            <DrawerHeader className="flex flex-col gap-1">
+              <h1>{titleDrawer}</h1>
+              <p className="font-normal">{descriptionTitleDrawer}</p>
+            </DrawerHeader>
+            <DrawerBody>
+              <p>Fitur ini masih tahap pengembangan mohon bersabar</p>
+            </DrawerBody>
+          </>
         </DrawerContent>
       </Drawer>
     </>

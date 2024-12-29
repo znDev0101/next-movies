@@ -15,8 +15,9 @@ type SearchParams = Promise<{ [key: string]: string | string[] | undefined }>;
 export default async function PopularPage(props: {
   searchParams: SearchParams;
 }) {
+  const { page } = await props.searchParams;
   const response = await fetchFromAPI<IAllMedia>(
-    `movie/popular?api_key=${process.env.API_KEY}`,
+    `movie/popular?api_key=${process.env.API_KEY}&page=${page !== undefined ? page : "1"}`,
   );
 
   return (
@@ -27,7 +28,8 @@ export default async function PopularPage(props: {
           <p className="mt-2 text-medium text-gray-700 dark:text-gray-400 lg:text-lg">
             Dive into the world of popular movies that have captured the hearts
             of audiences worldwide. From blockbuster hits to critically
-            acclaimed films, discover what's trending in the cinematic universe.
+            acclaimed films, discover what&apos;s trending in the cinematic
+            universe.
           </p>
         </div>
         <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">

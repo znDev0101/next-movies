@@ -16,24 +16,22 @@ const Card = ({ data, searchQuery = null, mediatype }: CardProps<IAllList>) => {
       className={`${searchQuery !== null ? `w-full` : `min-w-[calc(50%-0.5rem)] flex-shrink-0 snap-start rounded-md sm:min-w-[calc(33.333%-0.7rem)] lg:min-w-[calc(20%-.8rem)]`} `}
     >
       <div className="relative h-72 w-full overflow-hidden rounded-md border border-gray-300 lg:h-96">
-        {data.poster_path === undefined || data.poster_path === null ? (
-          <BiCameraMovie />
-        ) : (
-          <Image
-            src={`${process.env.NEXT_PUBLIC_IMG_PATH}/w500${data.poster_path}`}
-            alt={`poster path`}
-            fill
-            style={{
-              objectFit: "cover",
-            }}
-            priority
-          />
-        )}
+        <Image
+          src={`${process.env.NEXT_PUBLIC_IMG_PATH}/w500${data.poster_path || data.profile_path}`}
+          alt={`poster path`}
+          fill
+          style={{
+            objectFit: "cover",
+          }}
+          priority
+        />
         <div className="absolute bottom-3 z-40 flex flex-col px-2 font-semibold lg:bottom-5 lg:gap-y-1">
           <div className="flex gap-x-3">
-            <span className="rounded-full bg-[#181C14] px-3 py-1 text-xs text-white dark:bg-white dark:text-black">
-              {data.vote_average}
-            </span>
+            {data.poster_path !== undefined && (
+              <span className="rounded-full bg-[#181C14] px-3 py-1 text-xs text-white dark:bg-white dark:text-black">
+                {data.vote_average}
+              </span>
+            )}
             {data.media_type !== undefined && (
               <span className="rounded-full bg-[#181C14] px-2 py-1 text-xs text-white dark:border dark:border-white">
                 {data.media_type}

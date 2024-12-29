@@ -2,9 +2,16 @@
 
 import { Select, SelectItem } from "@nextui-org/react";
 import React from "react";
+import { IconType } from "react-icons";
+
+interface IDataReUseSelect {
+  icon: IconType;
+  key: string;
+  label: string;
+}
 
 interface ReuseSelectProps {
-  data: any;
+  data: IDataReUseSelect[];
   selectSortMedia: string;
   handleChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
 }
@@ -23,7 +30,7 @@ const ReUseSelect = ({
         selectedKeys={[selectSortMedia]}
         onChange={handleChange}
       >
-        {data.map((data: any) => (
+        {data.map((data: IDataReUseSelect) => (
           <SelectItem key={data.key}>{data.label}</SelectItem>
         ))}
       </Select>

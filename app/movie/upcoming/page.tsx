@@ -15,8 +15,9 @@ type SearchParams = Promise<{ [key: string]: string | string[] | undefined }>;
 export default async function UpcomingPage(props: {
   searchParams: SearchParams;
 }) {
+  const { page } = await props.searchParams;
   const response = await fetchFromAPI<IAllMedia>(
-    `movie/upcoming?api_key=${process.env.API_KEY}`,
+    `movie/upcoming?api_key=${process.env.API_KEY}&page=${page !== undefined ? page : "1"}`,
   );
 
   return (
