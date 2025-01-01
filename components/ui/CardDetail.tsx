@@ -56,10 +56,7 @@ const CardDetail = <
       <Modal
         size="3xl"
         placement="center"
-        backdrop={"opaque"}
-        classNames={{
-          backdrop: "bg-zinc-700 backdrop-opacity-20",
-        }}
+        backdrop={"blur"}
         isOpen={isOpen}
         onClose={onClose}
         hideCloseButton

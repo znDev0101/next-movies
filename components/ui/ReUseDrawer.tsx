@@ -67,14 +67,12 @@ const ReUseDrawer = () => {
       </Button>
       <Drawer
         isOpen={isOpen}
-        backdrop="opaque"
+        backdrop="blur"
         size={"xl"}
         placement={isMobile ? "bottom" : "right"}
         onOpenChange={onOpenChange}
         classNames={{
           base: "h-max lg:h-[70vh] lg:w-[25vw] lg:top-1/2 lg:-translate-y-1/2",
-          backdrop:
-            "bg-gradient-to-t from-zinc-900 to-zinc-900/20 backdrop-opacity-20",
         }}
       >
         <DrawerContent>

@@ -23,12 +23,10 @@ const MobileMenu = () => {
         <HiMenu className="text-xl" />
       </Button>
       <Modal
-        backdrop="opaque"
+        backdrop="blur"
         isOpen={isOpen}
         onOpenChange={onOpenChange}
         classNames={{
-          backdrop:
-            "bg-gradient-to-t from-zinc-900 to-zinc-900/20 backdrop-opacity-20",
           closeButton: "hidden",
         }}
       >
