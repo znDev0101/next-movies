@@ -47,7 +47,8 @@ export default async function PageSearch(props: {
         <section className="my-48 flex flex-col items-center justify-center">
           <h1 className="font-bold lg:text-4xl">No result found</h1>
           <p className="mt-5 text-lg">
-            No results found for "<span className="font-bold">{query}</span>"
+            No results found for &quot;
+            <span className="font-bold">{query}</span>&quot;
           </p>
           <p className="text-lg">Please try a different search term.</p>
         </section>
