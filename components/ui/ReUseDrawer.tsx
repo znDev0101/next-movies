@@ -72,7 +72,7 @@ const ReUseDrawer = () => {
         placement={isMobile ? "bottom" : "right"}
         onOpenChange={onOpenChange}
         classNames={{
-          base: "h-[50vh] lg:h-[70vh] lg:w-[25vw] lg:top-1/2 lg:-translate-y-1/2",
+          base: "h-[55vh] lg:h-[70vh] lg:w-[25vw] lg:top-1/2 lg:-translate-y-1/2",
         }}
       >
         <DrawerContent>
@@ -97,7 +97,7 @@ const ReUseDrawer = () => {
                     </Checkbox>
                   ))}
                 </CheckboxGroup>
-                <Button onClick={handleSave} onPress={onClose}>
+                <Button onClick={handleSave} onPress={onClose} className="my-5">
                   Save Changes
                 </Button>
               </DrawerBody>
