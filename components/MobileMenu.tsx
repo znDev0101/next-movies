@@ -28,7 +28,7 @@ const MobileMenu = () => {
         onOpenChange={onOpenChange}
         classNames={{
           backdrop:
-            "bg-gradient-to-t from-zinc-900 to-red-900/70 backdrop-opacity-20",
+            "bg-gradient-to-t from-zinc-900 to-zinc-900/20 backdrop-opacity-20",
           closeButton: "hidden",
         }}
       >

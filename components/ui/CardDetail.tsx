@@ -58,8 +58,7 @@ const CardDetail = <
         placement="center"
         backdrop={"opaque"}
         classNames={{
-          backdrop:
-            "bg-gradient-to-b lg:bg-gradient-to-t dark:from-zinc-900 dark:to-zinc-900/10 dark:backdrop-opacity-20",
+          backdrop: "bg-zinc-700 backdrop-opacity-20",
         }}
         isOpen={isOpen}
         onClose={onClose}
