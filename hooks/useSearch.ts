@@ -9,7 +9,7 @@ export default function useSearch(auto: boolean = true) {
   const query = searchParams.get("query");
 
   const [term, setTerm] = useState<string>("");
-  const [value] = useDebounce<string>(term, 500);
+  const [value] = useDebounce<string>(term, 650);
 
   function handleSearch(value: string): void {
     if (value !== "") {
