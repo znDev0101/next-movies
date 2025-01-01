@@ -39,7 +39,7 @@ export default async function Popular(props: { searchParams: SearchParams }) {
         </div>
         {results?.total_pages !== 1 && (
           <Suspense fallback={<p>Loading...</p>}>
-            <ListPagination totalPage={results?.total_pages} />
+            <ListPagination totalPage={500} />
           </Suspense>
         )}
       </section>

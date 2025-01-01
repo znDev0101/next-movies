@@ -1,6 +1,7 @@
 "use client";
 
 import useFetch from "@/hooks/useFetch";
+import { IVideo } from "@/types/video";
 import { Button } from "@nextui-org/button";
 import {
   Modal,
@@ -16,11 +17,11 @@ const ModalUI = () => {
   const { mediatype, id } = useParams<{ mediatype: string; id: string }>();
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
-  const { data } = useFetch(
+  const { data } = useFetch<IVideo>(
     `https://api.themoviedb.org/3/${mediatype}/${id}/videos?api_key=${process.env.API_KEY}`,
   );
 
-  const officialTrailer = data?.find(
+  const officialTrailer = data?.results.find(
     (video) =>
       video.type === "Trailer" &&
       (video.official === true || video.site === "YouTube"),

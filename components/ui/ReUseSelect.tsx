@@ -1,26 +1,41 @@
 "use client";
 
 import { Select, SelectItem } from "@nextui-org/react";
-import React from "react";
-import { IconType } from "react-icons";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import React, { useEffect, useState } from "react";
 
 interface IDataReUseSelect {
-  icon: IconType;
   key: string;
   label: string;
 }
 
 interface ReuseSelectProps {
   data: IDataReUseSelect[];
-  selectSortMedia: string;
-  handleChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
 }
 
-const ReUseSelect = ({
-  data,
-  selectSortMedia,
-  handleChange,
-}: ReuseSelectProps) => {
+const ReUseSelect = ({ data }: ReuseSelectProps) => {
+  const router = useRouter();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+
+  const idGenre = searchParams.get("with_genres");
+  const sortBy = searchParams.get("sort_by");
+
+  const [selectSortMedia, setSelectSortMedia] = useState<string>("");
+
+  const handleChange = (e: React.ChangeEvent<HTMLSelectElement>): void => {
+    setSelectSortMedia(e.target.value);
+    router.push(
+      `${pathname}?with_genres=${idGenre?.replace(",", "%2C")}&sort_by=${e.target.value}`,
+    );
+  };
+
+  useEffect(() => {
+    if (sortBy === null) {
+      setSelectSortMedia("popularity.desc");
+    }
+  }, [sortBy]);
+
   return (
     <div className="flex w-44 flex-col gap-2">
       <Select

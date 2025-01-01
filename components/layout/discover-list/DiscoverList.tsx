@@ -12,6 +12,7 @@ import {
 import CardDetail from "@/components/ui/CardDetail";
 import Image from "next/image";
 import CardSkeleton from "@/components/skeleton/CardSkeleton";
+import { IAllMedia } from "@/types/allList";
 
 interface IDiscoverMedia {
   adult: boolean;
@@ -34,7 +35,8 @@ interface IDiscoverMedia {
 }
 
 const DiscoverList = () => {
-  const [selectSortMedia, setSelectSortMedia] = useState<string>("");
+  const [isSaveChanges, setIsSaveChanges] = useState<boolean>(false);
+
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
@@ -44,30 +46,25 @@ const DiscoverList = () => {
 
   const router = useRouter();
 
-  const idGenres: string | null = searchParams.get("with_genres");
-
-  const { data, isLoading } = useFetch(
-    `https://api.themoviedb.org/3/discover/${mediatype}?api_key=${process.env.API_KEY}&with_genres=${idGenres}&sort_by=${selectSortMedia}&page=${page !== null ? `${page}` : "1"}`,
-    selectSortMedia,
-    page,
+  const { data, isLoading } = useFetch<IAllMedia>(
+    `https://api.themoviedb.org/3/discover/${mediatype}?api_key=${process.env.API_KEY}&with_genres=${idGenre}&sort_by=${selectSortMedia}&page=${page !== null ? `${page}` : "1"}`,
+    undefined,
   );
-
-  const handleChange = (e: React.ChangeEvent<HTMLSelectElement>): void => {
-    setSelectSortMedia(e.target.value);
-    router.push(`${pathname}?with_genres=${idGenre}&sort_by=${e.target.value}`);
-  };
 
   return (
     <section className="my-10 w-full px-5">
       <MediaFilter
         handleChange={handleChange}
         selectSortMedia={selectSortMedia}
+        setIsSaveChanges={setIsSaveChanges}
+        selected={selected}
+        setSelected={setSelected}
       />
       <div className="mt-10 grid w-full grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
         {isLoading ? (
           <CardSkeleton length={20} searchQuery={"tmpData"} />
         ) : (
-          data?.map((data: IDiscoverMedia, i: number) => {
+          data?.results.map((data: IDiscoverMedia, i: number) => {
             return (
               <CardDetail<IDiscoverMedia>
                 data={data}

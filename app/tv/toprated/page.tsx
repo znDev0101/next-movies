@@ -1,6 +1,7 @@
 import Card from "@/components/ui/Card";
 import ListPagination from "@/components/ui/ListPagination";
-import { IAllList } from "@/types/allList";
+import { IAllList, IAllMedia } from "@/types/allList";
+import { fetchFromAPI } from "@/utils/fetchApi";
 import { Metadata } from "next";
 import React, { Suspense } from "react";
 
@@ -14,11 +15,9 @@ type SearchParams = Promise<{ [key: string]: string | string[] | undefined }>;
 export default async function TopRated(props: { searchParams: SearchParams }) {
   const { page } = await props.searchParams;
 
-  const response = await fetch(
-    `https://api.themoviedb.org/3/tv/top_rated?api_key=${process.env.API_KEY}&page=${page === undefined ? 1 : page}`,
+  const data = await fetchFromAPI<IAllMedia>(
+    `tv/top_rated?api_key=${process.env.API_KEY}&page=${page === undefined ? 1 : page}`,
   );
-
-  const { results } = await response.json();
 
   return (
     <main className="mt-24 w-full px-2 lg:px-5">
@@ -32,13 +31,13 @@ export default async function TopRated(props: { searchParams: SearchParams }) {
           </p>
         </div>
         <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
-          {results.map((data: IAllList, i: number) => {
+          {data?.results.map((data: IAllList, i: number) => {
             return <Card data={data} key={i} mediatype="tv" />;
           })}
         </div>
-        {results?.total_pages !== 1 && (
+        {data?.total_pages !== 1 && (
           <Suspense fallback={<p>Loading...</p>}>
-            <ListPagination totalPage={results?.total_pages} />
+            <ListPagination totalPage={data?.total_pages} />
           </Suspense>
         )}
       </section>

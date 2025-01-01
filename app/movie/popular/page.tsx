@@ -37,11 +37,10 @@ export default async function PopularPage(props: {
             return <Card data={data} key={i} mediatype="movies" />;
           })}
         </div>
-        {response?.total_pages !== 1 && (
-          <Suspense fallback={<p>Loading...</p>}>
-            <ListPagination totalPage={response?.total_pages} />
-          </Suspense>
-        )}
+
+        <Suspense fallback={<p>Loading...</p>}>
+          <ListPagination totalPage={500} />
+        </Suspense>
       </section>
     </main>
   );

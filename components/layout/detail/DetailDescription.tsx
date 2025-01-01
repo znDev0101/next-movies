@@ -5,7 +5,7 @@ import Link from "next/link";
 import React from "react";
 
 const DetailDescription = ({ data }: { data: IMediaDetail }) => {
-  const mediatype = data.release_date !== undefined;
+  const mediatype = data?.release_date !== undefined;
 
   return (
     <section className="mx-auto mt-20 w-[95%] lg:mt-20 lg:w-[85%]">

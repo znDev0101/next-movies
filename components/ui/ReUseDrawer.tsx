@@ -1,25 +1,38 @@
+"use client";
+
+import useFetch from "@/hooks/useFetch";
+import { IGenres } from "@/types/genres";
 import { Button } from "@nextui-org/button";
 import { useDisclosure } from "@nextui-org/modal";
 import {
+  Checkbox,
+  CheckboxGroup,
   Drawer,
   DrawerBody,
   DrawerContent,
   DrawerHeader,
 } from "@nextui-org/react";
+import {
+  useParams,
+  usePathname,
+  useRouter,
+  useSearchParams,
+} from "next/navigation";
 import React, { useEffect, useState } from "react";
+import { AiOutlineSetting } from "react-icons/ai";
 
-interface ReUseDrawerProps {
-  titleButton: string;
-  titleDrawer: string;
-  descriptionTitleDrawer?: string;
-}
-
-const ReUseDrawer = ({
-  titleButton,
-  titleDrawer,
-  descriptionTitleDrawer,
-}: ReUseDrawerProps) => {
+const ReUseDrawer = () => {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
+  const router = useRouter();
+
+  const searchParams = useSearchParams();
+  const pathname = usePathname();
+
+  const genreId = searchParams.get("with_genres");
+
+  const [selected, setSelected] = React.useState<string[]>([genreId as string]);
+
+  const { mediatype } = useParams();
 
   const [isMobile, setIsMobile] = useState<boolean>(false);
 
@@ -31,9 +44,27 @@ const ReUseDrawer = ({
     }
   }, []);
 
+  const genres = selected.slice(1, selected.length).join("%2C");
+
+  const { data } = useFetch<IGenres>(
+    `https://api.themoviedb.org/3/genre/${mediatype}/list?api_key=${process.env.API_KEY}`,
+  );
+
+  const handleSave = (): void => {
+    router.push(
+      `${pathname}?with_genres=${selected.length !== 1 ? `${selected[0]}%2C${genres}` : `${selected[0]}`}`,
+    );
+  };
+
   return (
     <>
-      <Button onPress={onOpen}>{titleButton}</Button>
+      <Button
+        onPress={onOpen}
+        endContent={<AiOutlineSetting />}
+        className="py-7 text-medium font-semibold lg:text-xl"
+      >
+        Filters
+      </Button>
       <Drawer
         isOpen={isOpen}
         backdrop="blur"
@@ -41,19 +72,37 @@ const ReUseDrawer = ({
         placement={isMobile ? "bottom" : "right"}
         onOpenChange={onOpenChange}
         classNames={{
-          base: "h-[50vh] lg:h-screen",
+          base: "h-[50vh] lg:h-[70vh] lg:w-[25vw] lg:top-1/2 lg:-translate-y-1/2",
         }}
       >
         <DrawerContent>
-          <>
-            <DrawerHeader className="flex flex-col gap-1">
-              <h1>{titleDrawer}</h1>
-              <p className="font-normal">{descriptionTitleDrawer}</p>
-            </DrawerHeader>
-            <DrawerBody>
-              <p>Fitur ini masih tahap pengembangan mohon bersabar</p>
-            </DrawerBody>
-          </>
+          {(onClose) => (
+            <>
+              <DrawerHeader className="flex flex-col gap-1">
+                <h1>Filters</h1>
+                <p className="font-normal">
+                  Narrow down your search results with the following filters.
+                </p>
+              </DrawerHeader>
+              <DrawerBody>
+                <CheckboxGroup
+                  label="Genres"
+                  value={selected}
+                  onValueChange={setSelected}
+                  orientation="horizontal"
+                >
+                  {data?.genres.map((data, i) => (
+                    <Checkbox value={`${data.id}`} key={i}>
+                      {data.name}
+                    </Checkbox>
+                  ))}
+                </CheckboxGroup>
+                <Button onClick={handleSave} onPress={onClose}>
+                  Save Changes
+                </Button>
+              </DrawerBody>
+            </>
+          )}
         </DrawerContent>
       </Drawer>
     </>

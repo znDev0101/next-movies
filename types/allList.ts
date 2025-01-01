@@ -22,7 +22,7 @@ export interface IAllList {
 }
 
 export interface IAllMedia {
-  dates: Record<string, string>;
+  dates?: Record<string, string>;
   page: number;
   results: IAllList[];
   total_pages: number;
