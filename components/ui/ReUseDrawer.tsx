@@ -61,7 +61,7 @@ const ReUseDrawer = () => {
       <Button
         onPress={onOpen}
         endContent={<AiOutlineSetting />}
-        className="py-7 text-medium font-semibold lg:text-xl"
+        className="py-6 text-medium font-semibold lg:text-xl"
       >
         Filters
       </Button>
@@ -97,7 +97,11 @@ const ReUseDrawer = () => {
                     </Checkbox>
                   ))}
                 </CheckboxGroup>
-                <Button onClick={handleSave} onPress={onClose} className="my-5">
+                <Button
+                  onClick={handleSave}
+                  onPress={onClose}
+                  className="my-5 font-semibold"
+                >
                   Save Changes
                 </Button>
               </DrawerBody>

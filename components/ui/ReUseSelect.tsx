@@ -44,6 +44,7 @@ const ReUseSelect = ({ data }: ReuseSelectProps) => {
         placeholder="Select an sort by"
         selectedKeys={[selectSortMedia]}
         onChange={handleChange}
+        size="sm"
       >
         {data.map((data: IDataReUseSelect) => (
           <SelectItem key={data.key}>{data.label}</SelectItem>
