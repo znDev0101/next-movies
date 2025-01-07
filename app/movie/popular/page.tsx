@@ -34,7 +34,7 @@ export default async function PopularPage(props: {
         </div>
         <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
           {response?.results.map((data: IAllList, i: number) => {
-            return <Card data={data} key={i} mediatype="movies" />;
+            return <Card data={data} key={i} mediatype="movie" />;
           })}
         </div>
 
