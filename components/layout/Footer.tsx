@@ -16,9 +16,9 @@ const Footer = () => {
         <div className="ms-72 hidden gap-x-80 lg:flex">
           {dataMenuNavbar.map((data: menuNavDropDown, i: number) => {
             return (
-              <div className="flex-col" key={i}>
-                <h1 className="text-xl font-semibold">{data.nameNav}</h1>
-                <ul className="mt-3">
+              <div key={i}>
+                <h1 className="w-max text-2xl font-semibold">{data.nameNav}</h1>
+                <ul>
                   {data.menuDropDown.map((data, i) => {
                     return (
                       <li
@@ -42,7 +42,7 @@ const Footer = () => {
       <div className="mx-5 my-10 flex flex-col gap-y-7 lg:ms-20">
         <p>
           <span className="font-semibold">
-            &copy; {getCurrentYear} Zulfa Nurhudaaa
+            &copy; {getCurrentYear} Zulfa Nurhuda
           </span>{" "}
           - All rights reserved. <br />
           <span className="flex flex-wrap items-center gap-x-2">
