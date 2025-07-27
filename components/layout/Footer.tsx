@@ -27,6 +27,7 @@ const Footer = () => {
                       >
                         <Link
                           href={`/${data.typeLink}/${data.nameDropDown.replace(/\s+/g, "").toLocaleLowerCase()}`}
+                          className="w-max"
                         >
                           {data.nameDropDown}
                         </Link>
@@ -61,7 +62,7 @@ const Footer = () => {
           </span>
         </p>
         <h1>
-          Data provided byy <span>TMDB.</span>
+          Data provided by <span>TMDB.</span>
         </h1>
       </div>
     </footer>
