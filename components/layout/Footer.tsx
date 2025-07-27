@@ -61,7 +61,7 @@ const Footer = () => {
           </span>
         </p>
         <h1>
-          Data provided by <span>TMDB.</span>
+          Data provided byy <span>TMDB.</span>
         </h1>
       </div>
     </footer>
