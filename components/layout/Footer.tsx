@@ -42,7 +42,7 @@ const Footer = () => {
       <div className="mx-5 my-10 flex flex-col gap-y-7 lg:ms-20">
         <p>
           <span className="font-semibold">
-            &copy; {getCurrentYear} Zulfa Nurhuda
+            &copy; {getCurrentYear} Zulfa Nurhudaaa
           </span>{" "}
           - All rights reserved. <br />
           <span className="flex flex-wrap items-center gap-x-2">
